@@ -66,36 +66,19 @@
             align-items: center;
         }
 
-        .telegram-link {
-            color: #3e3e3e;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border: 2px solid #3e3e3e;
-            border-radius: 9999px;
-            background-color: #ffffff;
-            line-height: 1;
+;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 2px solid #3e3e3e;
+    border-radius: 9999px;
+    background-color: #ffffff;
+    line-height: 1;
         }
 
-        .telegram-link:hover {
-            background-color: #f6f6f6;
-        }
+      
 
-        .telegram-link::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: currentColor;
-            -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 12c-.88-.25-.89-1.37.2-1.64l16.56-6.4c.75-.29 1.4.22 1.2.94l-2.67 12.61c-.22.95-1.13 1.18-1.78.73l-4.5-3.32l-2.23 2.15c-.47.44-1.29.21-1.48-.37z"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
+    
 
         #volume-slider {
             -webkit-appearance: none;
@@ -216,42 +199,14 @@
         }
 
         .resizer {
-            position: relative;
-            background: transparent;
+            width: 10px;
             cursor: col-resize;
+            background-color: #f0f0f0;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 10 30"><path d="M4 11h2v2H4zM4 15h2v2H4zM4 19h2v2H4z" fill="%23888"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
             flex-shrink: 0;
             flex-grow: 0;
-            z-index: 5;
-            width: 16px; /* Larger hit area so users don't need to be pixel-perfect */
-            touch-action: none; /* Better touch dragging */
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        .resizer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px; /* Slightly thicker visual line */
-            transform: translateX(-50%);
-            background-color: #3e3e3e;
-        }
-        .resizer::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 36px; /* larger grab handle */
-            height: 36px;
-            background-color: #ffffff;
-            border: 2px solid #3e3e3e;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%233e3e3e" fill="%233e3e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><line x1="4" y1="12" x2="20" y2="12"/></svg>');
-            background-repeat: no-repeat;
-            background-size: 60% 60%;
-            background-position: center;
-            pointer-events: none;
         }
 
         /* Left Panel */
@@ -543,7 +498,6 @@
             .attemptedCount {
                 display: none;
             }
-            .resizer { width: 8px; }
         }
 
         .footer__questionWrapper___1tZ46.selected .attemptedCount {
@@ -843,12 +797,11 @@
             margin-top: 19px;
             margin-bottom: 5px;
             transition: background-color 0.2s, border-color 0.2s;
-            padding: 0.5px 5px;
+            padding: 0.5px;
             display: flex;
             align-items: center;
+            justify-content: center;
             position: relative;
-            color: #afafaf;
-            font-weight: 600;
         }
         .drop-zone.drag-over {
             background-color: #e6f4ff;
@@ -1051,16 +1004,17 @@
 
         /* Styles for TRUE/FALSE/NOT GIVEN questions */
         .tf-question {
+            margin-bottom: 25px;
             padding: 10px 0px;
             border-radius: 4px;
             transition: border-color 0.3s, background-color 0.3s;
         }
         .tf-question-line {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            margin-bottom: 15px;
             padding: 5px 0px;
             border-radius: 4px;
-            gap: 15px;
         }
         .tf-question-number, .question-number-box {
             border: 2px solid #ccc;
@@ -1077,35 +1031,6 @@
         }
         .tf-question-text {
             padding-top: 3px;
-            flex: 1;
-        }
-
-        .answer-select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background: white;
-            color: #333;
-            border: 2px solid #333;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            min-width: 80px;
-            text-align: center;
-        }
-
-      
-        .answer-select option {
-            background: white;
-            color: #333;
-            padding: 8px;
-        }
-
-        .answer-select option:first-child {
-            color: #999;
-            font-style: italic;
         }
         .tf-options {
             padding-left: 5px;
@@ -1235,7 +1160,7 @@
             align-items: center;
             justify-content: center;
             vertical-align: middle;
-            max-width:200px;
+            min-width:200px;
             height: 25px;
             border: 2px dashed #999;
             border-radius: 4px;
@@ -1387,6 +1312,7 @@
         }
         .matching-question-item .drop-zone {
             width: 200px;
+            height: 40px;
         }
         .paragraph-matching-question {
             align-items: center;
@@ -1486,7 +1412,7 @@
         }
         .result-row {
             display: grid;
-            grid-template-columns: 56px 1fr 1fr;
+            grid-template-columns: 56px 1fr 1fr 120px;
             gap: 12px;
             padding: 10px 8px;
             border-bottom: 1px solid #eef2f7;
@@ -1525,6 +1451,24 @@
             border: 1px solid #a7f3d0;
             padding: 4px 8px;
             border-radius: 6px;
+        }
+        .status-badge {
+            justify-self: end;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .status-badge.ok {
+            background: #ecfdf5;
+            color: #065f46;
+            border-color: #a7f3d0;
+        }
+        .status-badge.bad {
+            background: #fff5f5;
+            color: #7f1d1d;
+            border-color: #f5c6cb;
         }
         .correct-answer-display {
             font-weight: bold;
@@ -1715,6 +1659,11 @@
         #show-explanation-btn:hover {
             background-color: #357abd;
         }
+        #deliver-button {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
     </style>
 </head>
 <body>
@@ -1730,7 +1679,7 @@
                 </button>
             </div>
         </div>
-        <H2>Juned Academy</H2>
+        <h2>Juned Academy</h2>
     </div>
 
     <div class="main-container" id="main-container">
@@ -1751,175 +1700,119 @@
         <div class="panels-container">
             <div class="passage-panel" id="passage-panel">
                 <div id="passage-text-1" class="reading-passage">
-                    <h4 class="text-center">LONGAEVA: Ancient Bristlecone Pine</h4>
-                    <p><strong>A</strong>&nbsp;&nbsp;To understand more about the earth's history, humans have often looked to the natural environment for insight into the past. The bristlecone pine (Pinus longaeva), of the White Mountains in California, has served this purpose greater than any other species of tree on the planet. Conditions here are brutal: scant precipitation and low average temperatures mean a short growing season, only intensified by ferocious wind and mal-nutritious rocky. Nevertheless, bristlecone pines have claimed these barren slopes as their permanent home. Evolving here in this harsh environment, super-adapted and without much competition, bristlecones have earned their seat on the longevity throne by becoming the oldest living trees on the planet. Results of extensive studies on bristlecone pine stands have shown that in fact such, environmental limitations are positively associated with the attainment of great age. This intriguing phenomenon will be discussed further on.</p>
-                    <p><strong>B</strong>&nbsp;&nbsp;But exactly how old is old? Sprouted before the invention of Egyptian hieroglyphs and long before the teachings of Jesus of Nazareth, Methuselah is the oldest bristlecone alive at roughly 4,700 years. Although specimens of this age do not represent the species' average, there are 200 trees more than 3,000 years old, and two dozen more than 4,000. Considering that these high ages are obtained in the face of such remarkable environmental adversity, the bristlecone pines have become the focus of much scientific examination over the past half-century.</p>
-                    <p><strong>C</strong>&nbsp;&nbsp;Perhaps most interested in the bristlecone pine are dendrochronologists or tree-ring daters. With every strenuous year that passes in the While Mountains, each bristlecone grows and forms a new outer layer of cambium that reflects a season's particular ease or hardship. So while growing seasons may expand or shrink, the trees carry on, their growth rings faithfully recording the bad years alongside the goods. Through examining the annual growth rings of both living and dead specimens, taking thousands of core samples, and by processes of cross-dating between trees and other qualitative records, scientists have compiled a continuous tree-ring record that dates back to the last Ice Age between eight and ten thousand years ago. Among other linked accomplishments, this record has enhanced the dating process, helping to double-check and correct the radiocarbon-14 method to more accurately estimate the age of organic material.</p>
-                    <p><strong>D</strong>&nbsp;&nbsp;Now more than ever the importance of monitoring the bristlecone is being realized. As our global climate continues to undergo its most recent and abrupt atmospheric change, these ancient scribes continue to respond. Since, the rings of wood formed each year reveal the trees' response to climatic conditions during a particular growing season, in their persistence they have left us natural recordings of the past, markers of the present, and clues to the future.</p>
-                    <p><strong>E</strong>&nbsp;&nbsp;The species' name originates from the appearance of its unusual cones and needles. The bristlecone's short, pale needles are also trademarks, bunching together to form foxtail-like bundles. As is the case of most conifer needles, these specialized leaves cluster together to shelter the stomata so very little moisture is lost through them. This adaptation helps the bristlecone photosynthesize during particularly brutal months. Saving the energy of constant needle replacement and providing a stable supply of chlorophyll. For a plant trying to store so much energy, bristlecone seeds are relatively large in size. They are first reproduced when trees reach ages between thirty and seventy-five years old. Germination rates are generally high, in part because seeds require little to no initial stratification. Perhaps the most intriguing physical characteristic of a mature bristlecone, however, is its ratio of living to deadwood on harsh sites and how this relates to old age. In older trees, however, especially in individuals over 1,500 years, a strip-bark trait is adaptive. This condition occurs as a result of cambium dieback, which erodes and thereby exposes certain areas of the bole, leaving only narrow bands of bark intact.</p>
-                    <p><strong>F</strong>&nbsp;&nbsp;The technique of cambial edge retreat has helped promote old age in bristlecone pine, but that certainly is no the only reason. Most crucial to these trees' longevity is their compact size and slow rates of growth. By remaining in most cases under ten meters tall, bristlecones stay close to the limited water supply and can hence support more branches and photosynthesizing. Combined with the dry, windy, and often freezing mountain air, slow growth guarantees the bristlecones tight, fibrous rings with a high resin content and structural strength. The absence of natural disaster has also safeguarded the bristlecone's lengthy lifespan. Due to a lack of ground cover vegetation and an evenly spaced layout, bristlecone stands on the White Mountain peaks have been practically unaffected by the fire. This lack of vegetation also means a lack of competition for the bristlecones.</p>
-                    <p><strong>G</strong>&nbsp;&nbsp;Bristlecone pines restricted to numerous, rather isolated stands at higher altitudes in the southwestern United States. Stands occur from the Rocky Mountains, through the Colorado Plateau, to the western margin of the Great Basin. Within this natural range, the oldest and most widely researched stands of bristlecones occur in California's the White Mountains. Even just 200 miles away from the Pacific Ocean, the White Mountains are home to one of this country's few high-elevation deserts. Located in the extreme eastern rain shadow of the Sierra Nevada, this region receives only 12.54 inches of precipitation per year and experiences temperatures between -20F and +50F. The peaks south of the Owens Valley, are higher up than they might appear from a distance. Although most summits exist somewhere around 11,000 feet, snow-capped White Mountain Peak, for which the range is named, stands at 14,246 feet above sea level. That said, to reach areas of a pure bristlecone is an intense journey all to itself.</p>
-                    <p><strong>H</strong>&nbsp;&nbsp;With seemingly endless areas of wonder and interest, the bristlecone pines have become subject to much research over the past half-century. Since the annual growth of these ancient organisms directly reflects the climatic conditions of a particular time period, bristlecones are of greatest significance to dendrochronologists or tree-ring specialists. Dating any tree is simple and can be done within reasonable accuracy just by counting out the rings made each year by the plant's natural means of growth. By carefully compiling a nearly 10,000-year-old bristlecone pine record, these patient scientists have accurately corrected the carbon-14 dating method and estimated ages of past periods of global climate change. What makes this record so special to dendrochronologists, too, is that, nowhere, throughout time, is precisely the same long-term sequence of wide and narrow rings repeated, because year-to-year variations in climate are never exactly the same.</p>
-                    <p><strong>I</strong>&nbsp;&nbsp;Historically the bristlecone's remote location and gnarled wood have deterred commercial extraction, but nothing on earth will go unaffected by global warming. If temperatures rise by only 6 degrees F, which many experts say is likely this century, about two-thirds of the bristlecones' ideal habitat in the White Mountains effectively will be gone. Almost 30,000 acres of National Forest now preserves the ancient bristlecone, but paved roads, campsites, and self-guided trails have led only to more human impact. In 1966, the U.S.F.S reported over 20,000 visitors to the Ancient Bristlecone Pine Forest, a figure which could exceed 40,000 today. Over the past hundreds of thousands of years, this species has endured in one of the earth's most trying environments; they deserve our respect and reverence. As global climate change slowly alters their environment, we as humans must do our part to raise awareness and lower our impact.</p>
+                    <h4 class="text-center">The Dinosaurs Footprints and Extinction</h4>
+                    <p><strong>A</strong>&nbsp;&nbsp;EVERYBODY knows that the dinosaurs were killed by an asteroid. Something big hit the earth 65 million years ago and, when the dust had fallen, so had the great reptiles. There is thus a nice if ironic, symmetry in the idea that a similar impact brought about the dinosaurs' rise. That is the thesis proposed by Paul Olsen, of Columbia University, and his colleagues in this week's Science.</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;Dinosaurs first appeared in the fossil record 230m years ago, during the Triassic period. But they were mostly small, and they shared the earth with lots of other sorts of reptile. It was in the subsequent Jurassic, which began 202 million years ago, that they overran the planet and turned into the monsters depicted in the book and movie "Jurassic Park". (Actually, though, the dinosaurs that appeared on screen were from the still more recent Cretaceous period.) Dr Olsen and his colleagues are not the first to suggest that the dinosaurs inherited the earth as the result of an asteroid strike. But they are the first to show that the takeover did, indeed, happen in a geological eyeblink.</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;Dinosaur skeletons are rare. Dinosaur footprints are, however, surprisingly abundant. And the sizes of the prints are as good an indication of the sizes of the beasts as are the skeletons themselves. Dr Olsen and his colleagues, therefore, concentrated on prints, not bones.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;The prints in question were made in eastern North America, a part of the world the full of rift valleys to those in East Africa today. Like the modern African rift valleys, the Triassic/Jurassic American ones contained lakes, and these lakes grew and shrank at regular intervals because of climatic changes caused by periodic shifts in the earth's orbit. (A similar phenomenon is responsible for modern ice ages.) That regularity, combined with reversals in the earth's magnetic field, which are detectable in the tiny fields of certain magnetic minerals, means that rocks from this place and period can be dated to within a few thousand years. As a bonus, squishy lake-edge sediments are just the things for recording the tracks of passing animals. By dividing the labour between themselves, the ten authors of the paper were able to study such tracks at 80 sites.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;The researchers looked at 18 so-called ichnotaxa. These are recognizable types of the footprint that cannot be matched precisely with the species of animal that left them. But they can be matched with a general sort of animal, and thus act as an indicator of the fate of that group, even when there are no bones to tell the story. Five of the ichnotaxa disappear before the end of the Triassic, and four march confidently across the boundary into the Jurassic. Six, however, vanish at the boundary, or only just splutter across it; and there appear from nowhere, almost as soon as the Jurassic begins.</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;That boundary itself is suggestive. The first geological indication of the impact that killed the dinosaurs was an unusually high level of iridium in rocks at the end of the Cretaceous when the beasts disappear from the fossil record. Iridium is normally rare at the earth's surface, but it is more abundant in meteorites. When people began to believe the impact theory, they started looking for other Cretaceous-and anomalies. One that turned up was a surprising abundance of fern spores in rocks just above the boundary layer – a phenomenon known as a "fern spike".</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;That matched the theory nicely. Many modern ferns are opportunists. They cannot compete against plants with leaves, but if a piece of land is cleared by, say, a volcanic eruption, they are often the first things to set up shop there. An asteroid strike would have scoured much of the earth of its vegetable cover, and provided a paradise for ferns. A fern spike in the rocks is thus a good indication that something terrible has happened.</p>
+                    <p><strong>H</strong>&nbsp;&nbsp;Both an iridium anomaly and a fern spike appear in rocks at the end of the Triassic, too. That accounts for the disappearing ichnotaxa: the creatures that made them did not survive the holocaust. The surprise is how rapidly the new ichnotaxa appear.</p>
+                    <p><strong>I</strong>&nbsp;&nbsp;Dr Olsen and his colleagues suggest that the explanation for this rapid increase in size may be a phenomenon called ecological release. This is seen today when reptiles (which, in modern times, tend to be small creatures) reach islands where they face no competitors. The most spectacular example is on the Indonesian island of Komodo, where local lizards have grown so large that they are often referred to as dragons. The dinosaurs, in other words, could flourish only when the competition had been knocked out.</p>
+                    <p><strong>J</strong>&nbsp;&nbsp;That leaves the question of where the impact happened. No large hole in the earth's crust seems to be 202m years old. It may, of course, have been overlooked. Old craters are eroded and buried, and not always easy to find. Alternatively, it may have vanished. Although the continental crust is more or less permanent, the ocean floor is constantly recycled by the tectonic processes that bring about continental drift. There is no ocean floor left that is more than 200m years old, so a crater that formed in the ocean would have been swallowed up by now.</p>
+                    <p><strong>K</strong>&nbsp;&nbsp;There is a third possibility, however. This is that the crater is known, but has been misdated. The Manicouagan "structure", a crater in Quebec, is thought to be 214m years old. It is huge – some 100km across – and seems to be the largest of between three and five craters that formed within a few hours of each other as the lumps of a disintegrated comet hit the earth one by one.</p>
                 </div>
                 <div id="passage-text-2" class="reading-passage hidden">
-                    <h4 class="text-center">Ancient Storytelling</h4>
-                    <p><strong>A</strong>&nbsp;&nbsp;It was told, we suppose, to people crouched around a fire: a tale of adventure, most likely-relating some close encounter with death; a remarkable hunt, an escape from mortal danger; a vision, or something else out of the ordinary. Whatever its thread, the weaving of this story was done with a prime purpose. The listeners must be kept listening. They must not fall asleep. So, as the story went on, its audience should be sustained by one question above all. What happens next?</p>
-                    <p><strong>B</strong>&nbsp;&nbsp;The first fireside stories in human history can never be known. They were kept in the heads of those who told them. This method of storage is not necessarily inefficient. From documented oral traditions in Australia, the Balkans and other parts of the world we know that specialised storytellers and poets can recite from memory literally thousands of lines, in verse or prose, verbatim-word for word. But while memory is rightly considered an art in itself, it is clear that a primary purpose of making symbols is to have a system of reminders or mnemonic cues – signs that assist us to recall certain information in the mind's eye.</p>
-                    <p><strong>C</strong>&nbsp;&nbsp;In some Polynesian communities, a notched memory stick may help to guide a storyteller through successive stages of recitation. But in other parts of the world, the activity of storytelling historically resulted in the development or even the invention of writing systems. One theory about the arrival of literacy in ancient Greece, for example, argues that the epic tales about the Trojan War and the wanderings of Odysseus – traditionally attributed to Homer – were just so enchanting to hear that they had to be preserved. So the Greeks, c.750-700BC, borrowed an alphabet from their neighbors in the eastern Mediterranean, the Phoenicians.</p>
-                    <p><strong>D</strong>&nbsp;&nbsp;The custom of recording stories on parchment and other materials can be traced in many manifestations around the world, from the priestly papyrus archives of ancient Egypt to the birch-bark scrolls on which the North American Ojibway Indians set down their creation-myth. It is a well-tried and universal practice: so much so that to this day storytime is probably most often associated with words on paper. The formal practice of narrating a story aloud would seem-so we assume to have given way to newspapers, novels and comic strips. This, however, is not the case. Statistically, it is doubtful that the majority of humans currently rely upon the written word to get access to stories. So what is the alternative source?</p>
-                    <p><strong>E</strong>&nbsp;&nbsp;Each year, over 7 billion people will go to watch the latest offering from Hollywood, Bollywood and beyond. The supreme storyteller of today is cinema. The movies, as distinct from still photography, seem to be an essential modem phenomenon. This is an illusion, for there are, as we shall see, certain ways in which the medium of film is indebted to very old precedents of arranging 'sequences' of images. But any account of visual storytelling must be with the recognition that all storytelling beats with a deeply atavistic pulse: that is, a 'good story' relies upon formal patterns of plot and characterisation that have been embedded in the practice of storytelling over many generations.</p>
-                    <p><strong>F</strong>&nbsp;&nbsp;Thousands of scripts arrive every week at the offices of the major film studios. But aspiring screenwriters really need to look no further for essential advice then the fourth-century BC Greek Philosopher Aristotle. He left some incomplete lecture notes on the art of telling stories in various literary and dramatic modes, a slim volume known as The Poetics. Though he can never have envisaged the popcorn-fuelled actuality of a multiplex cinema, Aristotle is almost prescient about the key elements required to get the crowds flocking to such a cultural hub. He analyzed the process with cool rationalism. When a story enchants us, we lose the sense of where we are; we are drawn into the story so thoroughly that we forget it is a story being told. This is, in Aristotle's phrase, 'the suspension of disbelief.</p>
-                    <p><strong>G</strong>&nbsp;&nbsp;We know the feeling. If ever we have stayed in our seats, stunned with grief, as the credits roll by, or for days after seeing that vivid evocation of horror have been nervous about taking a shower at home, then we have suspended disbelief. We have been caught, or captivated, in the storyteller's web. Did it all really happen? We really thought so for a while. Aristotle must have witnessed often enough this suspension of disbelief. He taught at Athens, the city where theater developed as a primary form of civic ritual and recreation. Two theatrical types of storytelling, tragedy and comedy, caused Athenian audiences to lose themselves in sadness and laughter respectively. Tragedy, for Aristotle, was particularly potent in its capacity to enlist and then purge the emotions of those watching the story unfold on the stage, so he tried to identify those factors in the storyteller's art that brought about such engagement. He had, as an obvious sample for analysis, not only the fifth-century BC masterpieces of Classical Greek tragedy written by Aeschylus, Sophocles and Euripides. Beyond them stood Homer, whose stories even then had canonical status: The Iliad and The Odyssey were already considered literary landmarks-stories by which all other stories should be measured. So what was the secret of Homer's narrative art?</p>
-                    <p><strong>H</strong>&nbsp;&nbsp;It was not hard to find. Homer created credible heroes. His heroes belonged to the past, they were mighty and magnificent, yet they were not, in the end, fantasy figures. He made his heroes sulk, bicker, cheat and cry. They were, in short, characters – protagonists of a story that an audience would care about, would want to follow, would want to know what happens next. As Aristotle saw, the hero who shows a human side-some flaw or weakness to which mortals are prone-is intrinsically dramatic.d by logging.</p>
+                    <h4 class="text-center">Art in Iron and Steel</h4>
+                    <p><strong>A</strong>&nbsp;&nbsp;Works of engineering and technology are sometimes viewed as the antitheses of art and humanity. Think of the connotations of assembly lines, robots, and computers. Any positive values there might be in such creations of the mind and human industry can be overwhelmed by the associated negative images of repetitive, stressful, and threatened jobs. Such images fuel the arguments of critics of technology even as they may drive powerful cars and use the Internet to protest what they see as the artless and dehumanizing aspects of living in an industrialized and digitized society. At the same time, landmark megastructures such as the Brooklyn and Golden Gate bridges are almost universally hailed as majestic human achievements as well as great engineering monuments that have come to embody the spirits of their respective cities. The relationship between art and engineering has seldom been easy or consistent.</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;The human worker may have appeared to be but a cog in the wheel of industry, yet photographers could reveal the beauty of line and composition in a worker doing something as common as using a wrench to turn a bolt. When Henry Ford's enormous River Rouge plant opened in 1927 to produce the Model A, the painter/photographer Charles Sheeler was chosen to photograph it. The world's largest car factory captured the imagination of Sheeler, who described it as the most thrilling subject he ever had to work with. The artist also composed oil paintings of the plant, giving them titles such as American Landscape and Classic Landscape.</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;Long before Sheeler, other artists, too, had seen the beauty and humanity in works of engineering and technology. This is perhaps no more evident than in Coalbrookdale, England, where iron, which was so important to the industrial revolution, was worked for centuries. Here, in the late eighteenth century, Abraham Darby III cast on the banks of the Severn River the large ribs that formed the world's first iron bridge, a dramatic departure from the classic stone and timber bridges that dotted the countryside and were captured in numerous serene landscape paintings. The metal structure, simply but appropriately called Iron Bridge, still spans the river and still beckons engineers, artists, and tourists to gaze upon and walk across it, as if on a pilgrimage to a revered place.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;At Coalbrookdale, the reflection of the ironwork in the water completes the semicircular structure to form a wide-open eye into the future that is now the past. One artist's bucolic depiction shows pedestrians and horsemen on the bridge, as if on a woodland trail. On one shore, a pair of well-dressed onlookers interrupts their stroll along the riverbank, perhaps to admire the bridge. On the other side of the gently flowing river, a lone man leads two mules beneath an arch that lets the towpath pass through the bridge's abutment. A single boatman paddles across the river in a tiny tub boat. He is in no rush because there is no towline to carry from one side of the bridge to the other. This is how Michael Rooker was Iron Bridge in his 1792 painting. A colored engraving of the scene hangs in the nearby Coalbrookdale museum, along with countless other contemporary renderings of the bridge in its full glory and in its context, showing the iron structure not as a blight on the landscape but at the center of it. The surrounding area at the same time radiates out from the bridge and pales behind it.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;In the nineteenth century, the railroads captured the imagination of artists, and the steam engine in the distance of a landscape became as much a part of it as the herd of cows in the foreground. The Impressionist Claude Monet painted man-made structures like railway stations and cathedrals as well as water lilies. Portrait painters such as Christian Schussele found subjects in engineers and inventors – and their inventions – as well as in the American founding fathers. By the twentieth century, engineering, technology, and industry were very well established as subjects for artists.</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;American-born Joseph Pennell illustrated many European travel articles and books. Pennell, who early in his career made drawings of buildings under construction and shrouded in scaffolding, returned to America late in life and recorded industrial activities during World War I. He is perhaps best known among engineers for his depiction of the Panama Canal as it neared completion and his etchings of the partially completed Hell Gate and Delaware River bridges.</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;Pennell has often been quoted as saying, "Great engineering is great art," a sentiment that he expressed repeatedly. He wrote of his contemporaries, "I understand nothing of engineering, but I know that engineers are the greatest architects and the most pictorial builders since the Greeks." Where some observers saw only utility, Pennell saw also beauty, if not in form then at least in scale. He felt he was not only rendering a concrete subject but also conveying through his drawings the impression that it made on him. Pennell called the sensation that he felt before a great construction project 'The Wonder of Work". He saw engineering as a process. That process is memorialized in every completed dam, skyscraper, bridge, or other great achievement of engineering.</p>
+                    <p><strong>H</strong>&nbsp;&nbsp;If Pennell experienced the wonder of work in the aggregate, Lewis Hine focused on the individuals who engaged in the work. Hine was trained as a sociologist but became best known as a photographer who exposed the exploitation of children. His early work documented immigrants passing through Ellis Island, along with the conditions in the New York tenements where they lived and the sweatshops where they worked. Upon returning to New York, he was given the opportunity to record the construction of the Empire State Building, which resulted in the striking photographs that have become such familiar images of daring and insouciance. He put his own life at risk to capture workers suspended on cables hundreds of feet in the air and sitting on a high girder eating lunch. To engineers today, one of the most striking features of these photos, published in 1932 in Men at Work, is the absence of safety lines and hard hats. However, perhaps more than anything, the photos evoke Pennell's "The Wonder of Work" and inspire admiration for the bravery and skill that bring a great engineering project to completion.</p>
                 </div>
                 <div id="passage-text-3" class="reading-passage hidden">
-                    <h4 class="text-center">Music: Language We All Speak</h4>
-                    <div class="drop-zone" data-q-start="27" data-dnd-group="p3-headings">27</div>
-                    <p>Music is one of the human species's relatively few universal abilities. Without formal training, any individual, from Stone Age tribesman to suburban teenager has the ability to recognize music and, in some fashion, to make it. Why this should be so is a mystery. After all, music isn't necessary for getting through the day, and if it aids in reproduction, it does so only in highly indirect ways. Language, by contrast, is also everywhere-but for reasons that are more obvious. With language, you and the members of your tribe can organize a migration across Africa, build reed boats and cross the seas, and communicate at night even when you can't see each other. Modern culture, in all its technological extravagance, springs directly from the human talent for manipulating symbols and syntax. Scientists have always been intrigued by the connection between music and language. Yet over the years, words and melody have acquired a vastly different status in the lab and the seminar room. While language has long been considered essential to unlocking the mechanisms of human intelligence, music is generally treated as an evolutionary frippery – mere "auditory cheesecake," as the Harvard cognitive scientist Steven Pinker puts it.</p>
-                    <div class="drop-zone" data-q-start="28" data-dnd-group="p3-headings">28</div>
-                    <p>But thanks to a decade-long ware of neuroscience research, that tune is changing. A flurry of recent publications suggests that language and music may equally be able to tell us who we are and where we're from – not just emotionally, but biologically. In July, the journal Nature Neuroscience devoted a special issue to the topic. And in an article in the August 6 issue of the Journal of Neuroscience, David Schwartz, Catherine Howe, and Dale Purves of Duke University argued that the sounds of music and the sounds of language are intricately connected.</p>
-                    <p>To grasp the originality of this idea, it's necessary to realize two things about how music has traditionally been understood. First, musicologists have long emphasized that while each culture stamps a special identity onto its music; the music itself has some universal qualities. For example, in virtually all cultures sound is divided into some or all of the 12 intervals that make up the chromatic scale – that is, the scale represented by the keys on a piano. For centuries, observers have attributed this preference for certain combinations of tones to the mathematical properties of sound itself. Some 2,500 years ago, Pythagoras was the first to note a direct relationship between the harmoniousness of a tone combination and the physical dimensions of the object that produced it. For example, a plucked string will always play an octave lower than a similar string half its size, and a fifth lower than a similar string two-thirds it's length. This link between simple ratios and harmony has influenced music theory ever since.</p>
-                    <div class="drop-zone" data-q-start="29" data-dnd-group="p3-headings">29</div>
-                    <p>This music-is-moth idea often accompanied by the notion that music formally speaking at least exists apart from the world in which it was created. Writing recently in The New York Review of Books, pianist and critic Charles Rosen discussed the long-standing notion that while painting and sculpture reproduce at least some aspects of the natural world, and writing describes thoughts and feelings we are all familiar with, music is entirely abstracted from the world in which we live. Neither idea is right, according to David Schwartz and his colleagues. Human musical preferences are fundamentally shaped not by elegant algorithms or ration but by the messy sounds of real life, and of speech in particular – which in turn is shaped by our evolutionary heritage. "The explanation of music, like the explanation of any product of the mind, must be rooted in biology, not in numbers per se," says Schwartz.</p>
-                    <p>Schwartz, Howe, and Purves analyzed a vast selection of speech sounds from a variety of languages to reveal the underlying patterns common to all utterances. In order to focus only on the raw sound, they discarded all theories about speech and meaning and sliced sentences into random bites. Using a database of over 100,000 brief segments of speech, they noted which frequency had the greatest emphasis in each sound. The resulting set of frequencies, they discovered, corresponded closely to the chromatic scale. In short, the building blocks of music are to be found in speech.</p>
-                    <p>Far from being abstract, music presents a strange analogue to the patterns created by the sounds of speech. "Music, like the visual arts, is rooted in our experience of the natural world," says Schwartz. "It emulates our sound environment in the way that visual arts emulate the visual environment." In music, we hear the echo of our basic sound-making instrument – the vocal tract. The explanation for human music is simple; still than Pythagoras's mathematical equations. We like the sounds that are familiar to us-specifically, we like sounds that remind us of us.</p>
-                    <p>This brings up some chicken-or-egg evolutionary questions. It may be that music imitates speech directly, the researchers say, in which case it would seem that language evolved first. It's also conceivable that music came first and language is in effect an Imitation of the song – that in everyday speech we hit the musical notes we especially like. Alternately, it may be that music imitates the general products of the human sound-making system, which just happens to be mostly speech. "We can't know this," says Schwartz. "What we do know is that they both come from the same system, and it is this that shapes our preferences."</p>
-                    <div class="drop-zone" data-q-start="30" data-dnd-group="p3-headings">30</div>
-                    <p>Schwartz's study also casts light on the long-running question of whether animals understand or appreciate music. Despite the apparent abundance of "music" in the natural world- birdsong, whalesong, wolf howls, synchronized chimpanzee hooting previous studies have found that many laboratory animals don't show a great affinity for the human variety of music-making. Marc Hauser and Josh McDermott of Harvard argued in the July issue of Nature Neuroscience that animals don't create or perceive music the way we do. The act that laboratory monkeys can show recognition of human tunes is evidence, they say, of shared general features of the auditory system, not any specific chimpanzee musical ability. As for birds, those most musical beasts, they generally recognize their own tunes – a narrow repertoire – but don't generate novel melodies as we do. There are no avian Mozarts.</p>
-                    <p>But what's been played to the animals, Schwartz notes, is human music. If animals evolve preferences for sound as we do – based upon the soundscape in which they live – then their "music" would be fundamentally different from ours. In the same way, our scales derive from human utterances, a cat's idea of a good tune would derive from yowls and meows. To demonstrate that animals don't appreciate sounds the way we do, we'd need evidence that they don't respond to "music" constructed from their own sound environment.</p>
-                    <div class="drop-zone" data-q-start="31" data-dnd-group="p3-headings">31</div>
-                    <p>No matter how the connection between language and music is parsed, what is apparent is that our sense of music, even our love for it, is as deeply rooted in our biology and in our brains as language is. This is most obvious with babies, says Sandra Trehub at the University of Toronto, who also published a paper in the Nature Neuroscience special issue.</p>
-                    <p>For babies, music and speech are on a continuum. Mothers use musical speech to "regulate infants' emotional states." Trehub says. Regardless of what language they speak, the voice all mothers use with babies is the same: "something between speech and song." This kind of communication "puts the baby in a trance-like state, which may proceed to sleep or extended periods of rapture." So if the babies of the world could understand the latest research on language and music, they probably wouldn't be very surprised. The upshot, says Trehub, is that music maybe even more of a necessity than we realize.</p>
+                    <h4 class="text-center">Beyond the Blue Line</h4>
+                    <p><strong>A</strong>&nbsp;&nbsp;Much of the thrill of venturing to the far side of the world rests on the romance of difference. So one feels a certain sympathy for Captain James Cook on the day in 1778 that he "discovered" Hawaii. Then on his third expedition to the Pacific, the British navigator had explored scores of islands across the breadth of the sea, from lush New Zealand to the lonely wastes of Easter Island. This latest voyage had taken him thousands of miles north from the Society Islands to an archipelago so remote that even the old Polynesians back on Tahiti knew nothing about it. Imagine Cook's surprise, then, when the natives of Hawaii came paddling out in their canoes and greeted him in a familiar tongue, one he had heard on virtually every mote of inhabited land he had visited. Marveling at the ubiquity of this Pacific language and culture, he later wondered in his journal: "How shall we account for this Nation spreading itself so far over this vast ocean?"</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;That question, and others that flow from it has tantalized inquiring minds for centuries: Who were these amazing seafarers? Where did they come from, starting more than 3,000 years ago? And how could a Neolithic people with simple canoes and no navigation gear manage to find, let alone colonize, hundreds of far-flung island specks scattered across an ocean that spans nearly a third of the globe? Answers have been slow in coming. But now a startling archaeological find on the island of Éfaté, in the Pacific nation of Vanuatu, has revealed an ancient seafaring people, the distant ancestors of today's Polynesians, taking their first steps into the unknown. The discoveries there have also opened a window into the shadowy world of those early voyagers.</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;"What we have is a first- or second-generation site containing the graves of some of the Pacific's first explorers," says Spriggs, professor of archaeology at the Australian National University and co-leader of an international team excavating the site. It came to light only by luck. A backhoe operator, digging up topsoil on the grounds of a derelict coconut plantation, scraped open a grave – the first of dozens in a burial ground some 3,000 years old. It is the oldest cemetery ever found in the Pacific islands, and it harbors the bones of an ancient people archaeologists call the Lapita, a label that derives from a beach in New Caledonia where a landmark cache of their pottery was found in the 1950s.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;They were daring blue-water adventurers who roved the sea not just as explorers but also as pioneers, bringing along everything they would need to build new lives – their families and livestock, taro seedlings and stone tools. Within the span of a few centuries, the Lapita stretched the boundaries of their world from the jungle-clad volcanoes of Papua New Guinea to the loneliest coral outliers of Tonga, at least 2,000 miles eastward in the Pacific. Along the way they explored millions of square miles of an unknown sea, discovering and colonizing scores of tropical islands never before seen by human eyes: Vanuatu, New Caledonia, Fiji, Samoa.</p>
+                    <p>It was their descendants, centuries later, who became the great Polynesian navigators we all tend to think of: the Tahitians and Hawaiians, the New Zealand Maori, and the curious people who erected those statues on Easter Island. But it was the Lapita who laid the foundation – who bequeathed to the island the language, customs, and cultures that their more famous descendants carried around the Pacific.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;While the Lapita left a glorious legacy, they also left precious few clues about themselves. A particularly intriguing clue comes from chemical tests on the teeth of several skeletons. Then as now, the food and water you consume as a child deposits oxygen, carbon, strontium, and other elements in your still-forming adult teeth. The isotope signatures of these elements vary subtly from place to place, so that if you grow up in, say, Buffalo, New York, then spend your adult life in California, tests on the isotopes in your teeth will always reveal your eastern roots.</p>
+                    <p>Isotope analysis indicates that several of the Lapita buried on Éfaté didn't spend their childhoods here but came from somewhere else. And while isotopes can't pinpoint their precise island of origin, this much is clear: At some point in their lives, these people left the villages of their birth and made a voyage by seagoing canoe, never to return. DNA teased from these ancient bones may also help answer one of the most puzzling questions in Pacific anthropology: Did all Pacific islanders spring from one source or many? Was there only one outward migration from a single point in Asia, or several from different points? "This represents the best opportunity we've had yet," says Spriggs, "to find out who the Lapita actually were, where they came from, and who their closest descendants are today."</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;There is one stubborn question for which archaeology has yet to provide any answers: How did the Lapita accomplish the ancient equivalent of a moon landing, many times over? No one has found one of their canoes or any rigging, which could reveal how the canoes were sailed. Nor do the oral histories and traditions of later Polynesians offer any insights.</p>
+                    <p>"All we can say for certain is that the Lapita had canoes that were capable of ocean voyages, and they had the ability to sail them," says Geoff Irwin, a professor of archaeology at the University of Auckland and an avid yachtsman. Those sailing skills, he says, were developed and passed down over thousands of years by earlier mariners who worked their way through the archipelagoes of the western Pacific making short crossings to islands within sight of each other. The real adventure didn't begin, however, until their Lapita descendants neared the end of the Solomons chain, for this was the edge of the world. The nearest landfall, the Santa Cruz Islands, is almost 230 miles away, and for at least 150 of those miles, the Lapita sailors would have been out of sight of land, with empty horizons on every side.</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;The Lapita's thrust into the Pacific was eastward, against the prevailing trade winds, Irwin notes. Those nagging headwinds, he argues, may have been the key to their success. "They could sail out for days into the unknown and reconnoiter, secure in the knowledge that if they didn't find anything, they could turn about and catch a swift ride home on the trade winds. It's what made the whole thing work." Once out there, skilled seafarers would detect abundant leads to follow to land: seabirds and turtles, coconuts and twigs carried out to sea by the tides and the afternoon pileup of clouds on the horizon that often betokens an island in the distance.</p>
+                    <p>All this presupposes one essential detail, says Atholl Anderson, professor of prehistory at the Australian National University and, like Irwin, a keen yachtsman: that the Lapita had mastered the advanced art of tacking into the wind. "And there's no proof that they could do any such thing," Anderson says. "There has been this assumption that they must have done so, and people have built canoes to re-create those early voyages based on that assumption. But nobody has any idea what their canoes looked like or how they were rigged."</p>
+                    <p><strong>H</strong>&nbsp;&nbsp;However they did it, the Lapita spread themselves a third of the way across the Pacific, then called it quits for reasons known only to them. Ahead lay the vast emptiness of the central Pacific, and perhaps they were too thinly stretched to venture farther. They probably never numbered more than a few thousand in total, and in their rapid migration eastward they encountered hundreds of islands – more than 300 in Fiji alone. Supplied with such an embarrassment of riches, they could settle down and enjoy what for a time was Earth's last Edens.</p>
+                    <p><strong>I</strong>&nbsp;&nbsp;Rather than give all the credit to human skill and daring, Anderson invokes the winds of change. El Niño, the same climate disruption that affects the Pacific today, may have helped scatter the first settlers to the ends of the ocean, Anderson suggests. Climate data obtained from slow-growing corals around the Pacific and from lake-bed sediments in the Andes of South America point to a series of unusually frequent El Niño around the time of the Lapita expansion, and again between 1,600 and 1,200 years ago, when the second wave of pioneer navigators made their voyages farther east, to the remotest corners of the Pacific. By reversing the regular east-to-west flow of the trade winds for weeks at a time, these "super El Niño" might have sped the Pacific's ancient mariners on long, unplanned voyages could have been key to launching Polynesians across the wide expanse of open water between Tonga, where the Lapita stopped, and the distant archipelagoes of eastern Polynesia. "Once they crossed that gap, they could island-hop throughout the region, and from the Marquesas, it's mostly downwind to Hawaii," Anderson says. It took another 400 years for mariners to reach Easter Island, which lies in the opposite direction – normally upwind. "Once again this was during a period of frequent El Niño activity."</p>
                 </div>
             </div>
             <div class="resizer" id="resizer"></div>
             <div class="questions-panel" id="questions-panel">
                 <div id="questions-1" class="question-set">
                     <div class="questions-container">
-                        <div class="question" data-q-start="1" data-q-end="4">
+                        <div class="question" data-q-start="1" data-q-end="6">
                             <div class="question-prompt">
-                                <p><strong>Questions 1–4</strong></p>
-                                <p>The Reading Passage has nine paragraphs <strong>A-I</strong></p>
-                                <p>Which paragraph contains the following information?</p>
-                                <p>Write the correct letter <strong>A-I</strong>, in boxes 1-4 on your answer sheet.</p>
+                                <p><strong>Questions 1-6</strong></p>
+                                <p>Do the following statements agree with the information given in Reading Passage 1?</p>
+                                <ul style="list-style: none; padding-left: 0;">
+                                    <li><strong>YES</strong> if the statement is true</li>
+                                    <li><strong>NO</strong> if the statement is false</li>
+                                    <li><strong>NOT GIVEN</strong> if the information is not given in the passage</li>
+                                </ul>
                             </div>
                             <div class="tf-question" data-q-start="1" data-q-end="1">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">1</span>
-                                    <span class="tf-question-text">Human activity threats bristlecone pines habitat</span>
-                                    <select name="q1" id="q1" class="answer-select">
-                                        <option value="">Choose...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                        <option value="F">F</option>
-                                        <option value="G">G</option>
-                                        <option value="H">H</option>
-                                        <option value="I">I</option>
-                                    </select>
+                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">Dr Paul Olsen and his colleagues believe that asteroid knock may also lead to dinosaurs' boom.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q1" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q1" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="2" data-q-end="2">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">2</span>
-                                    <span class="tf-question-text">Explanations for a ring of bristlecone pines</span>
-                                    <select name="q2" id="q2" class="answer-select">
-                                        <option value="">Choose...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                        <option value="F">F</option>
-                                        <option value="G">G</option>
-                                        <option value="H">H</option>
-                                        <option value="I">I</option>
-                                    </select>
+                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">Books and movie like Jurassic Park often exaggerate the size of the dinosaurs.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q2" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q2" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="3" data-q-end="3">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">3</span>
-                                    <span class="tf-question-text">An accountable recording provided from the past until now</span>
-                                    <select name="q3" id="q3" class="answer-select">
-                                        <option value="">Choose...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                        <option value="F">F</option>
-                                        <option value="G">G</option>
-                                        <option value="H">H</option>
-                                        <option value="I">I</option>
-                                    </select>
+                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">Dinosaur footprints are more adequate than dinosaur skeletons.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q3" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q3" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="4" data-q-end="4">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">4</span>
-                                    <span class="tf-question-text">Survived in a hostile environment</span>
-                                    <select name="q4" id="q4" class="answer-select">
-                                        <option value="">Choose...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                        <option value="F">F</option>
-                                        <option value="G">G</option>
-                                        <option value="H">H</option>
-                                        <option value="I">I</option>
-                                    </select>
+                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">The prints were chosen by Dr Olsen to study because they are more detectable than the earth magnetic field to track the date of geological precise within thousands of years.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q4" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q4" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="tf-question" data-q-start="5" data-q-end="5">
+                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">Ichnotaxa showed that footprints of dinosaurs offer exact information of the trace left by an individual species.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q5" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q5" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="tf-question" data-q-start="6" data-q-end="6">
+                                <div class="tf-question-line"><span class="tf-question-number">6</span><span class="tf-question-text">We can find more Iridium in the earth's surface than in meteorites.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q6" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q6" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q6" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                                 </div>
 
-                        <div class="question" data-q-start="5" data-q-end="7">
+                        <div class="question" data-q-start="7" data-q-end="13">
                             <div class="question-prompt">
-                                <p><strong>Questions 5–7</strong></p>
-                                <p>Choose the correct answer.</p>
+                                <p><strong>Questions 7-13</strong></p>
+                                <p>Complete the summary. Write <strong>NO MORE THAN TWO WORDS</strong> from the text for each answer.</p>
                             </div>
-                            <div class="multi-choice-question" data-q-start="5" data-q-end="5">
-                                <div class="question-prompt">
-                                    <p><strong>5.</strong> According to passage A, what aspect of bristlecone pines attracts author's attention?</p>
-                                </div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q5" value="A"> Brutal environment they live</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q5" value="B"> Remarkable long age</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q5" value="C"> They only live in California</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q5" value="D"> Outstanding height</label></div>
-                            </div>
-                            <div class="multi-choice-question" data-q-start="6" data-q-end="6">
-                                <div class="question-prompt">
-                                    <p><strong>6.</strong> Why do we investigate Bristlecone pines in higher altitudes of California's the White Mountains?</p>
-                                </div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q6" value="A"> Because of the oldest ones researched in this region</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q6" value="B"> Because most bizarre ones are in this region</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q6" value="C"> Because precipitation is rich in this region</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q6" value="D"> Because sea level is comparatively high in this region</label></div>
-                            </div>
-                            <div class="multi-choice-question" data-q-start="7" data-q-end="7">
-                                <div class="question-prompt">
-                                    <p><strong>7.</strong> Why there are repeated patterns of wide and narrow rings?</p>
-                                </div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q7" value="A"> Because sea level rises which affect tree ring</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q7" value="B"> Because tree ring pattern is completely random</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q7" value="C"> Because ancient organisms affect their growth</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q7" value="D"> Because the variation of climate change is different</label></div>
-                            </div>
-                        </div>
-
-                        <div class="question" data-q-start="8" data-q-end="13">
-                            <div class="question-prompt">
-                                <p><strong>Questions 8–13</strong></p>
-                                <p>Complete the summary. Write <strong>NO MORE THAN THREE WORDS</strong> from the text for each answer.</p>
-
-                            </div>
-                            <div class="summary-text" style="border: 1px solid #000; padding: 10px; ">
-                                <p>The bristlecone's special adaptation is a benefit for photosynthesizing, and reserving the <input type="text" class="answer-input" id="q8" placeholder="8"> of leave replacement and providing sufficient chlorophyll. Probably because seeds do not rely on primary <input type="text" class="answer-input" id="q9" placeholder="9">, Germination rate is high. Because of cambium dieback, only narrow <input type="text" class="answer-input" id="q10" placeholder="10"> remain complete. Due to multiple factors such as windy, cold climate and <input type="text" class="answer-input" id="q11" placeholder="11">, bristlecones' rings have a tight and solid structure full of resin. Moreover, bristlecone stands are safe from the fire because of little <input type="text" class="answer-input" id="q12" placeholder="12"> plants spread in this place. The summits of Owens Valley is higher than they emerge if you observe from a <input type="text" class="answer-input" id="q13" placeholder="13">.</p>
+                            <div class="summary-text">
+                                <p>Dr Olsen and his colleagues applied a phenomenon named <input type="text" class="answer-input" id="q7" placeholder="7"> to explain the large size of the Eubrontes, which is a similar case to that nowadays reptiles invade a place where there are no <input type="text" class="answer-input" id="q8" placeholder="8">; for example, on an island called Komodo, indigenous huge lizards grow so big that people even regarding them as <input type="text" class="answer-input" id="q9" placeholder="9">.</p>
+                                <p>However, there were no old impact trace being found? The answer may be that we have <input type="text" class="answer-input" id="q10" placeholder="10"> the evidence. Old craters are difficult to spot or it probably <input type="text" class="answer-input" id="q11" placeholder="11"> due to the effect of the earth moving. Even a crater formed in Ocean had been <input type="text" class="answer-input" id="q12" placeholder="12"> under the impact of crust movement. Besides, the third hypothesis is that the potential evidence – some craters maybe <input type="text" class="answer-input" id="q13" placeholder="13">.</p>
                             </div>
                         </div>
                     </div>
@@ -1928,17 +1821,14 @@
                     <div class="questions-container">
                         <div class="question" data-q-start="14" data-q-end="18">
                             <div class="question-prompt">
-                                <p><strong>Questions 14–18</strong></p>
-                                <p>The Reading Passage has eight paragraphs <strong>A-H</strong></p>
-                                <p>Which paragraph contains the following information?</p>
-                                <p>Write the correct letter <strong>A-H</strong>, in boxes 14-18 on your answer sheet.</p>
+                                <p><strong>Questions 14-18</strong></p>
+                                <p>The text has eight paragraphs. Which paragraph contains the following information?</p>
                             </div>
-                            <div class="tf-question" data-q-start="14" data-q-end="14">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">14</span>
-                                    <span class="tf-question-text">A misunderstanding of a modern way for telling stories</span>
-                                    <select name="q14" id="q14" class="answer-select">
-                                        <option value="">Choose...</option>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>14.</strong> Art connected with architecture for the first time.</span>
+                                    <select class="answer-input" id="q14">
+                                        <option value="">Select</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -1949,13 +1839,10 @@
                                         <option value="H">H</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="tf-question" data-q-start="15" data-q-end="15">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">15</span>
-                                    <span class="tf-question-text">The typical forms mentioned for telling stories</span>
-                                    <select name="q15" id="q15" class="answer-select">
-                                        <option value="">Choose...</option>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>15.</strong> small artistic object and constructions built are put together</span>
+                                    <select class="answer-input" id="q15">
+                                        <option value="">Select</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -1966,13 +1853,10 @@
                                         <option value="H">H</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="tf-question" data-q-start="16" data-q-end="16">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">16</span>
-                                    <span class="tf-question-text">The fundamental aim of storytelling</span>
-                                    <select name="q16" id="q16" class="answer-select">
-                                        <option value="">Choose...</option>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>16.</strong> the working condition were recorded by the artist as an exciting subject.</span>
+                                    <select class="answer-input" id="q16">
+                                        <option value="">Select</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -1983,13 +1867,10 @@
                                         <option value="H">H</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="tf-question" data-q-start="17" data-q-end="17">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">17</span>
-                                    <span class="tf-question-text">A description of reciting stories without any assistance</span>
-                                    <select name="q17" id="q17" class="answer-select">
-                                        <option value="">Choose...</option>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>17.</strong> mention of one engineers' artistic work on an unfinished engineering project</span>
+                                    <select class="answer-input" id="q17">
+                                        <option value="">Select</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -2000,13 +1881,10 @@
                                         <option value="H">H</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="tf-question" data-q-start="18" data-q-end="18">
-                                <div class="tf-question-line">
-                                    <span class="tf-question-number">18</span>
-                                    <span class="tf-question-text">How to make story characters attractive</span>
-                                    <select name="q18" id="q18" class="answer-select">
-                                        <option value="">Choose...</option>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>18.</strong> Two examples of famous bridges which became the iconic symbols of those cities</span>
+                                    <select class="answer-input" id="q18">
+                                        <option value="">Select</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -2020,65 +1898,53 @@
                             </div>
                         </div>
 
-                        <div class="question" data-q-start="19" data-q-end="22">
+                        <div class="question" data-q-start="19" data-q-end="23">
                             <div class="question-prompt">
-                                <p><strong>Questions 19–22</strong></p>
-                                <p>Classify the following information as referring to</p>
-                                <p><strong>A</strong> adopted the writing system from another country</p>
-                                <p><strong>B</strong> used organic materials to record stories</p>
-                                <p><strong>C</strong> used tools to help to tell stories</p>
+                                <p><strong>Questions 19-23</strong></p>
+                                <p>Drag the correct person (A-F) to each description.</p>
                             </div>
-                            <div class="table-container">
-                                <table class="matching-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>A</th>
-                                            <th>B</th>
-                                            <th>C</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="statement"><strong>19.</strong> Egyptians</td>
-                                            <td class="clickable-cell" data-question="19" data-value="A" onclick="selectCell(this, 19, 'A')"></td>
-                                            <td class="clickable-cell" data-question="19" data-value="B" onclick="selectCell(this, 19, 'B')"></td>
-                                            <td class="clickable-cell" data-question="19" data-value="C" onclick="selectCell(this, 19, 'C')"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="statement"><strong>20.</strong> Ojibway</td>
-                                            <td class="clickable-cell" data-question="20" data-value="A" onclick="selectCell(this, 20, 'A')"></td>
-                                            <td class="clickable-cell" data-question="20" data-value="B" onclick="selectCell(this, 20, 'B')"></td>
-                                            <td class="clickable-cell" data-question="20" data-value="C" onclick="selectCell(this, 20, 'C')"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="statement"><strong>21.</strong> Polynesians</td>
-                                            <td class="clickable-cell" data-question="21" data-value="A" onclick="selectCell(this, 21, 'A')"></td>
-                                            <td class="clickable-cell" data-question="21" data-value="B" onclick="selectCell(this, 21, 'B')"></td>
-                                            <td class="clickable-cell" data-question="21" data-value="C" onclick="selectCell(this, 21, 'C')"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="statement"><strong>22.</strong> Greek</td>
-                                            <td class="clickable-cell" data-question="22" data-value="A" onclick="selectCell(this, 22, 'A')"></td>
-                                            <td class="clickable-cell" data-question="22" data-value="B" onclick="selectCell(this, 22, 'B')"></td>
-                                            <td class="clickable-cell" data-question="22" data-value="C" onclick="selectCell(this, 22, 'C')"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="drag-drop-container" style="flex-direction: column; gap: 16px;">
+                                <div class="matching-questions">
+                                    <div class="matching-question-item" data-q-start="19">
+                                        <span><strong>19.</strong> who made a comment that concrete constructions have a beauty just as artistic processes created by engineers the architects</span>
+                                        <div class="drop-zone" data-dnd-group="p2-19-23" data-q-start="19"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="20">
+                                        <span><strong>20.</strong> who made a romantic depiction of an old bridge in one painting</span>
+                                        <div class="drop-zone" data-dnd-group="p2-19-23" data-q-start="20"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="21">
+                                        <span><strong>21.</strong> who produced art pieces demonstrating the courage of workers in the site</span>
+                                        <div class="drop-zone" data-dnd-group="p2-19-23" data-q-start="21"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="22">
+                                        <span><strong>22.</strong> who produced portraits involving subjects in engineers and inventions and historical human heroes</span>
+                                        <div class="drop-zone" data-dnd-group="p2-19-23" data-q-start="22"></div>
+                                    </div>
+                                    <div class="matching-question-item" data-q-start="23">
+                                        <span><strong>23.</strong> who produced a painting of factories and named them ambitiously</span>
+                                        <div class="drop-zone" data-dnd-group="p2-19-23" data-q-start="23"></div>
+                                    </div>
+                                </div>
+                                <div class="drag-options-container" data-dnd-group="p2-19-23">
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="A"><strong>A</strong> – Charles Sheeler</div>
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="B"><strong>B</strong> – Michael Rooker</div>
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="C"><strong>C</strong> – Claude Monet</div>
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="D"><strong>D</strong> – Christian Schussele</div>
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="E"><strong>E</strong> – Joseph Pennell</div>
+                                    <div class="drag-item" draggable="true" data-dnd-group="p2-19-23" data-value="F"><strong>F</strong> – Lewis Hine</div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="question" data-q-start="23" data-q-end="26">
+                        <div class="question" data-q-start="24" data-q-end="26">
                             <div class="question-prompt">
-                                <p><strong>Questions 23–26</strong></p>
-                                <p>Complete the sentences below with <strong>ONE WORD ONLY</strong> from the passage.</p>
-                                <p>Write your answer in boxes 23–26 on your answer sheet.</p>
+                                <p><strong>Questions 24-26</strong></p>
+                                <p>Complete the summary. Write <strong>NO MORE THAN THREE WORDS</strong> from the text for each answer.</p>
                             </div>
                             <div class="summary-text">
-                                <p>Aristotle wrote a book on the art of storytelling called <input type="text" class="answer-input" id="q23" placeholder="23">.</p>
-                                <p>Aristotle believed the most powerful type of story to move listeners is <input type="text" class="answer-input" id="q24" placeholder="24">.</p>
-                                <p>Aristotle viewed Homers works as <input type="text" class="answer-input" id="q25" placeholder="25">.</p>
-                                <p>Aristotle believed attractive heroes should have some <input type="text" class="answer-input" id="q26" placeholder="26">.</p>
+                                <p><strong>Iron bridge Coalbrookdale, England</strong></p>
+                                <p>In the late eighteenth century, as artists began to capture the artistic attractiveness incorporated into architecture via engineering and technology were captured in numerous serene landscape paintings. One good example, the engineer called <input type="text" class="answer-input" id="q24" placeholder="24"> had designed the first iron bridge in the world and changed to using irons yet earlier bridges in the countryside were constructed using materials such as <input type="text" class="answer-input" id="q25" placeholder="25"> and wood. This first Iron bridge which across the <input type="text" class="answer-input" id="q26" placeholder="26"> was much significant in the industrial revolution period and it functioned for centuries.</p>
                             </div>
                         </div>
                     </div>
@@ -2087,114 +1953,112 @@
                     <div class="questions-container">
                         <div class="question" data-q-start="27" data-q-end="31">
                             <div class="question-prompt">
-                                <p><strong>Questions 27–31</strong></p>
-                                <p>The text has five sections. Choose the correct heading for each section and move it into the gap.</p>
-                                <div class="">
-                                    <p><strong>List of Headings</strong></p>
-                                    <div class="drag-options-container" data-dnd-group="p3-headings">
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="i">i. Animal sometimes make music.</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="ii">ii. Recent research on music</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="iii">iii. Culture embedded in music</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="iv">iv. Historical theories review</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="v">v. Communication in music with animals</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="vi">vi. Contrast between music and language</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="vii">vii. Questions on a biological link with human and music</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-headings" data-value="viii">viii. Music is good for babies.</span>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="matching-form-container"></div>
-                        </div>
-
-                        <div class="question" data-q-start="32" data-q-end="38">
-                            <div class="question-prompt">
-                                <p><strong>Questions 32–38</strong></p>
-                                <p>Look at the following people and list of statements below.</p>
-                                <p>Match each person with the correct statement.</p>
-                                <p>Drag the correct letter A-G to match each person with their statement.</p>
-                                <p><strong>List of Statements</strong></p>
-                                
-                            </div>
-                                                        <div class="matching-question-container">
-                                <div class="matching-questions">
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Steven Pinker</p>
-                                        <div class="drop-zone" data-q-start="32" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            32
+                                <p><strong>Questions 27-31</strong></p>
+                                <p>Complete the summary with the list of words A-L below</p>
                                 </div>
+                            <div class="summary-text">
+                                <p>The question, arisen from Captain Cook's expedition to Hawaii, and others derived from it, has fascinated researchers for a long time. However, a surprising archaeological find on Éfaté began to provide valuable information about the <span class="summary-drop-zone" data-dnd-group="p3-27-31" data-question="27"></span> of Lapita. On the excavating site, a <span class="summary-drop-zone" data-dnd-group="p3-27-31" data-question="28"></span> containing <span class="summary-drop-zone" data-dnd-group="p3-27-31" data-question="29"></span> of Lapita was uncovered. Later on, various researches and tests have been done to study the ancient people – Lapita and their <span class="summary-drop-zone" data-dnd-group="p3-27-31" data-question="30"></span>. How could they manage to spread themselves so far over the vast ocean? All that is certain is that they were good at canoeing. And perhaps they could take well advantage of the trade wind. But there is no <span class="summary-drop-zone" data-dnd-group="p3-27-31" data-question="31"></span> of it.</p>
                             </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Musicologists</p>
-                                        <div class="drop-zone" data-q-start="33" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            33
-                                </div>
-                            </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Greek philosopher Pythagoras</p>
-                                        <div class="drop-zone" data-q-start="34" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            34
-                                </div>
-                            </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Schwartz, Howe, and Purves</p>
-                                        <div class="drop-zone" data-q-start="35" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            35
-                        </div>
-                            </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Marc Hauser and Josh McDermott</p>
-                                        <div class="drop-zone" data-q-start="36" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            36
-                                        </div>
-                                    </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Charles Rosen</p>
-                                        <div class="drop-zone" data-q-start="37" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            37
-                                        </div>
-                                    </div>
-                                    <div class="matching-question-item" style="display: flex; align-items: center; gap: 20px;">
-                                        <p>Sandra Trehub</p>
-                                        <div class="drop-zone" data-q-start="38" data-dnd-group="p3-people" style="display: flex; align-items: center;">
-                                            38
-                                        </div>
-                                    </div>
-                                    <div class="drag-options-container" data-dnd-group="p3-people">
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="A">A. Music exists outside of the world in which it is created</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="B">B. Music has a common feature though cultural influences affect</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="C">C. Humans need music.</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="D">D. Music priority connects to the disordered sound around.</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="E">E. Discovery of mathematical musical foundation.</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="F">F. Music is not treated equally well compared with the language</span>
-                                        <span class="drag-item" draggable="true" data-dnd-group="p3-people" data-value="G">G. Humans and monkeys have similar traits in perceiving sound.</span>
-                                </div>
-                                </div>
+                            <div class="summary-options-bank" data-dnd-group="p3-27-31">
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="A">A - bones</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="B">B - co-leader</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="C">C - descendents</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="D">D - international team</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="E">E - inquiring minds</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="F">F - proof</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="G">G - ancestors</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="H">H - early seafarers</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="I">I - pottery</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="J">J - assumption</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="K">K - horizons</div>
+                                <div class="drag-item" draggable="true" data-dnd-group="p3-27-31" data-value="L">L - grave</div>
                             </div>
                         </div>
 
-                        <div class="question" data-q-start="39" data-q-end="40">
+                        <div class="question" data-q-start="32" data-q-end="35">
                             <div class="question-prompt">
-                                <p><strong>Questions 39–40</strong></p>
+                                <p><strong>Questions 32-35</strong></p>
                                 <p>Choose the correct answer.</p>
-                                <p>Write your answers in boxes 39-40 on your answer sheet.</p>
                             </div>
-                            <div class="multi-choice-question" data-q-start="39" data-q-end="39">
-                                <div class="question-prompt">
-                                    <p><strong>39.</strong> Why was the study of animal's music uncertain?</p>
-                                </div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q39" value="A"> Animals don't have the same auditory system as humans.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q39" value="B"> Experiments on animal's music are limited.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q39" value="C"> tunes are impossible for the animal to make up.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q39" value="D"> Animals don't have the spontaneous ability for the tests.</label></div>
+                            <div class="multi-choice-question" data-q-start="32" data-q-end="32">
+                                <div class="question-prompt"><p><strong>32</strong> The chemical tests indicate that</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q32" value="A"> the elements in one's teeth varied from childhood to adulthood.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q32" value="B"> the isotope signatures of the elements remain the same in different places.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q32" value="C"> the result of the study is not fascinating.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q32" value="D"> these chemicals can't conceal one's origin.</label></div>
                             </div>
-                            <div class="multi-choice-question" data-q-start="40" data-q-end="40">
-                                <div class="question-prompt">
-                                    <p><strong>40.</strong> what is the main subject of this passage?</p>
+                            <div class="multi-choice-question" data-q-start="33" data-q-end="33">
+                                <div class="question-prompt"><p><strong>33</strong> The isotope analysis from the Lapita</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q33" value="A"> exactly locates their birth island.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q33" value="B"> reveals that the Lapita found the new place via straits.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q33" value="C"> helps researchers to find out answers about the islanders.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q33" value="D"> leaves more new questions for anthropologists to answer.</label></div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="34" data-q-end="34">
+                                <div class="question-prompt"><p><strong>34</strong> According to paragraph F, the offspring of Lapita</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q34" value="A"> were capable of voyages to land that is not accessible to view.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q34" value="B"> were able to have the farthest voyage of 230 miles.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q34" value="C"> worked their way through the archipelagoes of the western Pacific.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q34" value="D"> fully explored the horizons.</label></div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="35" data-q-end="35">
+                                <div class="question-prompt"><p><strong>35</strong> Once out exploring the sea, the sailors</p></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q35" value="A"> always found the trade winds unsuitable for sailing.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q35" value="B"> could return home with various clues.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q35" value="C"> sometimes would overshoot their home port and sail off into eternity.</label></div>
+                                <div class="multi-choice-option"><label><input type="radio" name="q35" value="D"> would sail in one direction.</label></div>
+                            </div>
+                            </div>
+
+                        <div class="question" data-q-start="36" data-q-end="40">
+                            <div class="question-prompt">
+                                <p><strong>Questions 36-40</strong></p>
+                                <p>Do the following statements agree with the information given in Reading Passage 3?</p>
+                                <ul style="list-style: none; padding-left: 0;">
+                                    <li><strong>TRUE</strong> if the statement is true</li>
+                                    <li><strong>FALSE</strong> if the statement is false</li>
+                                    <li><strong>NOT GIVEN</strong> if the information is not given in the passage</li>
+                                </ul>
+                            </div>
+                            <div class="tf-question" data-q-start="36" data-q-end="36">
+                                <div class="tf-question-line"><span class="tf-question-number">36</span><span class="tf-question-text">The Lapita could canoe in the prevailing wind.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q36" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q36" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q36" value="NOT GIVEN"> NOT GIVEN</label>
+                            </div>
+                        </div>
+                            <div class="tf-question" data-q-start="37" data-q-end="37">
+                                <div class="tf-question-line"><span class="tf-question-number">37</span><span class="tf-question-text">It was difficult for the sailors to find ways back, once they were out.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q37" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q37" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q37" value="NOT GIVEN"> NOT GIVEN</label>
+                            </div>
+                            </div>
+                            <div class="tf-question" data-q-start="38" data-q-end="38">
+                                <div class="tf-question-line"><span class="tf-question-number">38</span><span class="tf-question-text">The reason why the Lapita stopped canoeing farther is still unknown.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q38" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q38" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q38" value="NOT GIVEN"> NOT GIVEN</label>
+                        </div>
+                    </div>
+                            <div class="tf-question" data-q-start="39" data-q-end="39">
+                                <div class="tf-question-line"><span class="tf-question-number">39</span><span class="tf-question-text">The majority of the Lapita dwelled on Fiji.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q39" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q39" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q39" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q40" value="A"> Language and psychology.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q40" value="B"> Music formation.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q40" value="C"> Role of music in human society.</label></div>
-                                <div class="multi-choice-option"><label><input type="radio" name="q40" value="D"> Music experiments for animals.</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="40" data-q-end="40">
+                                <div class="tf-question-line"><span class="tf-question-number">40</span><span class="tf-question-text">The navigators could take advantage of El Nino during their forth voyages.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q40" value="TRUE"> TRUE</label>
+                                    <label class="tf-option"><input type="radio" name="q40" value="FALSE"> FALSE</label>
+                                    <label class="tf-option"><input type="radio" name="q40" value="NOT GIVEN"> NOT GIVEN</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2297,6 +2161,10 @@
             </div>
         </div>
         
+        <button id="deliver-button" aria-label="Review your answers" class="footer__deliverButton___3FM07">
+            <i class="fa fa fa-check" aria-hidden="true"></i>
+            <span>Check Answers</span>
+        </button>
     </nav>
 
     <!-- Context Menu -->
@@ -2367,49 +2235,49 @@
 
         // --- ANSWERS ---
         const correctAnswers = {
-            // Part 1 (1-13) - LONGAEVA: Ancient Bristlecone Pine
-            '1': 'I',
-            '2': 'C',
-            '3': 'D',
-            '4': 'A',
-            '5': 'B',
-            '6': 'A',
-            '7': 'D',
-            '8': 'energy',
-            '9': 'stratification',
-            '10': ['bands of bark', 'bark'],
-            '11': ['dry mountain air', 'air'],
-            '12': 'ground cover',
-            '13': 'distance',
-            // Part 2 (14-26) - Ancient Storytelling
-            '14': 'E',
-            '15': 'G',
-            '16': 'A',
-            '17': 'B',
-            '18': 'H',
-            '19': 'B',
+            // Part 1 (1-13)
+            '1': 'YES',
+            '2': 'NOT GIVEN',
+            '3': 'YES',
+            '4': 'NOT GIVEN',
+            '5': 'NO',
+            '6': 'NO',
+            '7': 'ecological release',
+            '8': 'competitors',
+            '9': 'dragons',
+            '10': 'overlooked',
+            '11': ['vanished', 'have vanished'],
+            '12': 'swallowed up',
+            '13': 'misdated',
+            // Part 2 (14-26)
+            '14': 'C',
+            '15': 'E',
+            '16': 'B',
+            '17': 'F',
+            '18': 'A',
+            '19': 'E',
             '20': 'B',
-            '21': 'C',
-            '22': 'A',
-            '23': ['the Poetics', 'Poetics'],
-            '24': 'tragedy',
-            '25': 'landmarks',
-            '26': ['flaw', 'weakness'],
-            // Part 3 (27-40) - Music: Language We All Speak
-            '27': 'vi',
-            '28': 'iv',
-            '29': 'ii',
-            '30': 'v',
-            '31': 'vii',
-            '32': 'F',
-            '33': 'B',
-            '34': 'E',
-            '35': 'D',
-            '36': 'G',
-            '37': 'A',
-            '38': 'C',
-            '39': 'B',
-            '40': 'C'
+            '21': 'F',
+            '22': 'D',
+            '23': 'A',
+            '24': 'Abraham Darby III',
+            '25': 'stone',
+            '26': 'river',
+            // Part 3 (27-40)
+            '27': 'H',
+            '28': 'L',
+            '29': 'A',
+            '30': 'C',
+            '31': 'F',
+            '32': 'D',
+            '33': 'C',
+            '34': 'A',
+            '35': 'B',
+            '36': 'TRUE',
+            '37': 'FALSE',
+            '38': 'TRUE',
+            '39': 'FALSE',
+            '40': 'NOT GIVEN'
         };
 
         // --- INITIALIZATION ---
@@ -2527,6 +2395,50 @@
 
             resizer.addEventListener('mousedown', initResize, false);
             initializeContextMenu();
+
+            // Ensure indicators (answered states, counts) are correct on initial load
+            updateAllIndicators();
+
+            // Ensure the bottom menu reflects the currently focused input as active
+            // 1) For text/select inputs with ids like q<number>
+            document.querySelectorAll('.answer-input').forEach(inputEl => {
+                const attach = (evtName) => inputEl.addEventListener(evtName, (e) => {
+                    const id = inputEl.id || '';
+                    if (id.startsWith('q')) {
+                        const qNum = parseInt(id.replace('q',''), 10);
+                        if (!isNaN(qNum)) {
+                            goToQuestion(qNum);
+                        }
+                    } else {
+                        // Fallback: find nearest container with data-q-start
+                        const container = inputEl.closest('[data-q-start]');
+                        if (container) {
+                            const qNum = parseInt(container.dataset.qStart, 10);
+                            if (!isNaN(qNum)) goToQuestion(qNum);
+                        }
+                    }
+                });
+                attach('focus');
+                attach('click');
+                attach('input');
+                attach('change');
+            });
+
+            // 2) For radio buttons (TF/NG and MCQ)
+            document.querySelectorAll('input[type="radio"]').forEach(radioEl => {
+                const update = () => {
+                    const name = radioEl.name || '';
+                    if (name.startsWith('q')) {
+                        const qNum = parseInt(name.replace('q',''), 10);
+                        if (!isNaN(qNum)) {
+                            goToQuestion(qNum);
+                        }
+                    }
+                };
+                radioEl.addEventListener('focus', update);
+                radioEl.addEventListener('change', update);
+                radioEl.addEventListener('click', update);
+            });
         }
 
         // --- CORE TEST LOGIC ---
@@ -2565,54 +2477,6 @@
             });
             document.querySelectorAll('.correct-answer-display').forEach(el => el.remove());
 
-            // Helper to evaluate the special TWO-answers checkbox group (Q20 & Q21) - only if present
-            const hasQ20to21Group = document.querySelectorAll('input[name="q20-21"]').length > 0;
-            function evaluateQ20to21() {
-                const checked = Array.from(document.querySelectorAll('input[name="q20-21"]:checked')).map(el => el.value).sort();
-                const isCorrect20 = checked.includes('A');
-                const isCorrect21 = checked.includes('E');
-
-                // Mark selected labels
-                document.querySelectorAll('input[name="q20-21"]').forEach(input => {
-                    const label = input.closest('.multi-choice-option');
-                    if (!label) return;
-                    label.classList.remove('correct', 'incorrect', 'correct-answer-highlight');
-                    if (input.checked) {
-                        const good = (input.value === 'A' && isCorrect20) || (input.value === 'E' && isCorrect21);
-                        label.classList.add(good ? 'correct' : 'incorrect');
-                    }
-                    if (!isCorrect20 && input.value === 'A') label.classList.add('correct-answer-highlight');
-                    if (!isCorrect21 && input.value === 'E') label.classList.add('correct-answer-highlight');
-                });
-
-                const selectedText = checked.join(' & ') || 'Not Answered';
-                // Q20 row
-                resultsDetailsContainer.innerHTML += `
-                    <div class="result-row ${isCorrect20 ? '' : 'incorrect'}">
-                        <span class="q-num">20</span>
-                        <span class="user-ans">${selectedText}</span>
-                        <span class="correct-ans">A</span>
-                    </div>`;
-                // Q21 row
-                resultsDetailsContainer.innerHTML += `
-                    <div class="result-row ${isCorrect21 ? '' : 'incorrect'}">
-                        <span class="q-num">21</span>
-                        <span class="user-ans">${selectedText}</span>
-                        <span class="correct-ans">E</span>
-                    </div>`;
-
-                // Mark nav buttons
-                const nav20 = document.querySelector(`.subQuestion[onclick="goToQuestion(20)"]`);
-                if (nav20) { nav20.classList.remove('answered', 'active'); nav20.classList.add(isCorrect20 ? 'correct' : 'incorrect'); }
-                const nav21 = document.querySelector(`.subQuestion[onclick="goToQuestion(21)"]`);
-                if (nav21) { nav21.classList.remove('answered', 'active'); nav21.classList.add(isCorrect21 ? 'correct' : 'incorrect'); }
-
-                if (isCorrect20) score += 1;
-                if (isCorrect21) score += 1;
-                return (isCorrect20 || isCorrect21);
-            }
-
-            let q20to21Evaluated = false;
             for (let i = 1; i <= totalQuestions; i++) {
                 const questionKey = String(i);
                 const correctAnswer = correctAnswers[questionKey];
@@ -2621,15 +2485,6 @@
                 
                 let userAnswerDisplay = 'Not Answered';
                 const correctAnswerText = Array.isArray(correctAnswer) ? correctAnswer.join(' / ') : correctAnswer;
-
-                // Special handling: combined checkbox group for Q20 & Q21
-                if ((i === 20 || i === 21) && hasQ20to21Group) {
-                    if (!q20to21Evaluated) {
-                        evaluateQ20to21();
-                        q20to21Evaluated = true;
-                    }
-                    continue; // Already handled rows, scoring, and marking
-                }
 
                 const textInput = document.getElementById(`q${i}`);
                 const radioGroup = document.querySelectorAll(`input[name="q${i}"][type="radio"]`);
@@ -2709,6 +2564,38 @@
                         if (dropZone) {
                             dropZone.classList.add('incorrect');
                         }
+                        if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    }
+                }
+                // Handle summary drag-and-drop questions (27-31) using summary-drop-zone
+                else if (document.querySelector(`.summary-drop-zone[data-question="${i}"]`)) {
+                    console.log(`🔍 Checking summary drag-and-drop question ${i}`);
+                    const dropZone = document.querySelector(`.summary-drop-zone[data-question="${i}"]`);
+                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
+                    const correctAnswer = correctAnswers[questionKey];
+
+                    if (droppedItem) {
+                        userAnswer = droppedItem.dataset.value;
+                        userAnswerDisplay = userAnswer;
+                        isCorrect = userAnswer === correctAnswer;
+
+                        dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
+                        if (isCorrect) {
+                            score++;
+                        } else if (correctAnswer) {
+                            const correctAnswerSpan = document.createElement('span');
+                            correctAnswerSpan.className = 'correct-answer-display';
+                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
+                            dropZone.appendChild(correctAnswerSpan);
+                        }
+                    } else {
+                        userAnswerDisplay = 'Not Answered';
+                        dropZone.classList.add('incorrect');
                         if (correctAnswer) {
                             const correctAnswerSpan = document.createElement('span');
                             correctAnswerSpan.className = 'correct-answer-display';
@@ -2867,10 +2754,11 @@
                  
                 // For showing results in the modal
                  const resultRow = `
-                    <div class="result-row ${isCorrect ? '' : 'incorrect'}">
+                    <div class="result-row ${isCorrect ? 'correct' : 'incorrect'}">
                         <span class="q-num">${i}</span>
                         <span class="user-ans">${userAnswerDisplay}</span>
                         <span class="correct-ans">${correctAnswerText}</span>
+                        <span class="status-badge ${isCorrect ? 'ok' : 'bad'}">${isCorrect ? 'Correct' : 'Incorrect'}</span>
                     </div>`;
                 resultsDetailsContainer.innerHTML += resultRow;
                 
@@ -2919,56 +2807,56 @@
         }
 
         function highlightCorrectAnswersInPassage() {
-            // Define the text passages and their corresponding question numbers for Part 1 (LONGAEVA: Ancient Bristlecone Pine)
+            // Define highlights for Part 1 (The Dinosaurs Footprints and Extinction)
             const part1Highlights = [
-                { question: 1, text: "Historically the bristlecone's remote location and gnarled wood have deterred commercial extraction, but nothing on earth will go unaffected by global warming", answer: "I" },
-                { question: 2, text: "Through examining the annual growth rings of both living and dead specimens, taking thousands of core samples, and by processes of cross-dating between trees and other qualitative records, scientists have compiled a continuous tree-ring record", answer: "C" },
-                { question: 3, text: "Since, the rings of wood formed each year reveal the trees' response to climatic conditions during a particular growing season, in their persistence they have left us natural recordings of the past, markers of the present, and clues to the future", answer: "D" },
-                { question: 4, text: "Nevertheless, bristlecone pines have claimed these barren slopes as their permanent home", answer: "A" },
-                { question: 5, text: "Results of extensive studies on bristlecone pine stands have shown that in fact such, environmental limitations are positively associated with the attainment of great age", answer: "B" },
-                { question: 6, text: "Within this natural range, the oldest and most widely researched stands of bristlecones occur in California's the White Mountains", answer: "A" },
-                { question: 7, text: "What makes this record so special to dendrochronologists, too, is that, nowhere, throughout time, is precisely the same long-term sequence of wide and narrow rings repeated, because year-to-year variations in climate are never exactly the same", answer: "D" },
-                { question: 8, text: "energy", answer: "energy" },
-                { question: 9, text: "stratification", answer: "stratification" },
-                { question: 10, text: "bands of bark", answer: "bands of bark" },
-                { question: 11, text: "dry mountain air", answer: "dry mountain air" },
-                { question: 12, text: "ground cover", answer: "ground cover" },
-                { question: 13, text: "distance", answer: "distance" }
+                { question: 1, text: "That is the thesis proposed by Paul Olsen", answer: "YES" },
+                { question: 2, text: "the monsters depicted in the book and movie \"Jurassic Park\". (Actually, though, the dinosaurs that appeared on screen were from the still more recent Cretaceous period.)", answer: "NOT GIVEN" },
+                { question: 3, text: "Dinosaur skeletons are rare. Dinosaur footprints are, however, surprisingly abundant.", answer: "YES" },
+                { question: 4, text: "means that rocks from this place and period can be dated to within a few thousand years", answer: "NOT GIVEN" },
+                { question: 5, text: "ichnotaxa. These are recognizable types of the footprint that cannot be matched precisely with the species of animal that left them", answer: "NO" },
+                { question: 6, text: "Iridium is normally rare at the earth's surface, but it is more abundant in meteorites.", answer: "NO" },
+                { question: 7, text: "ecological release. This is seen today when reptiles", answer: "ecological release" },
+                { question: 8, text: "reach islands where they face no competitors.", answer: "competitors" },
+                { question: 9, text: "local lizards have grown so large that they are often referred to as dragons.", answer: "dragons" },
+                { question: 10, text: "It may, of course, have been overlooked.", answer: "overlooked" },
+                { question: 11, text: "Alternatively, it may have vanished.", answer: "vanished" },
+                { question: 12, text: "a crater that formed in the ocean would have been swallowed up by now.", answer: "swallowed up" },
+                { question: 13, text: "the crater is known, but has been misdated.", answer: "misdated" }
             ];
 
-            // Define the text passages and their corresponding question numbers for Part 2 (Ancient Storytelling)
+            // Define highlights for Part 2 (Art in Iron and Steel)
             const part2Highlights = [
-                { question: 14, text: "The formal practice of narrating a story aloud would seem-so we assume to have given way to newspapers, novels and comic strips. This, however, is not the case", answer: "E" },
-                { question: 15, text: "Two theatrical types of storytelling, tragedy and comedy, caused Athenian audiences to lose themselves in sadness and laughter respectively", answer: "G" },
-                { question: 16, text: "Whatever its thread, the weaving of this story was done with a prime purpose. The listeners must be kept listening", answer: "A" },
-                { question: 17, text: "From documented oral traditions in Australia, the Balkans and other parts of the world we know that specialised storytellers and poets can recite from memory literally thousands of lines, in verse or prose, verbatim-word for word", answer: "B" },
-                { question: 18, text: "As Aristotle saw, the hero who shows a human side-some flaw or weakness to which mortals are prone-is intrinsically dramatic", answer: "H" },
-                { question: 19, text: "from the priestly papyrus archives of ancient Egypt", answer: "B" },
-                { question: 20, text: "the birch-bark scrolls on which the North American Ojibway Indians set down their creation-myth", answer: "B" },
-                { question: 21, text: "a notched memory stick may help to guide a storyteller through successive stages of recitation", answer: "C" },
-                { question: 22, text: "borrowed an alphabet from their neighbors in the eastern Mediterranean, the Phoenicians", answer: "A" },
-                { question: 23, text: "The Poetics", answer: "The Poetics" },
-                { question: 24, text: "Tragedy, for Aristotle, was particularly potent", answer: "tragedy" },
-                { question: 25, text: "The Iliad and The Odyssey were already considered literary landmarks", answer: "landmarks" },
-                { question: 26, text: "some flaw or weakness to which mortals are prone", answer: "flaw" }
+                { question: 14, text: "the relationship between art and engineering has seldom been easy or consistent.", answer: "C" },
+                { question: 16, text: "Lewis Hine", answer: "B" },
+                { question: 17, text: "his etchings of the partially completed Hell Gate and Delaware River bridges.", answer: "F" },
+                { question: 18, text: "landmark megastructures such as the Brooklyn and Golden Gate bridges are almost universally hailed as majestic human achievements", answer: "A" },
+                { question: 19, text: "\"Great engineering is great art,\" a sentiment that he expressed repeatedly.", answer: "E" },
+                { question: 20, text: "the painter/photographer Charles Sheeler was chosen to photograph it", answer: "B" },
+                { question: 21, text: "put his own life at risk to capture workers suspended on cables hundreds of feet in the air", answer: "F" },
+                { question: 22, text: "produced portraits involving subjects in engineers and inventions and historical human heroes.", answer: "D" },
+                { question: 23, text: "giving them titles such as American Landscape and Classic Landscape.", answer: "A" },
+                { question: 24, text: "Abraham Darby III cast", answer: "Abraham Darby III" },
+                { question: 25, text: "a dramatic departure from the classic stone and timber bridges", answer: "stone" },
+                { question: 26, text: "still spans the river", answer: "river" },
+                { text: "One artist's bucolic depiction shows pedestrians and horsemen on the bridge" },
             ];
 
-            // Define the text passages and their corresponding question numbers for Part 3 (Music: Language We All Speak)
+            // Define highlights for Part 3 (Beyond the Blue Line)
             const part3Highlights = [
-                { question: 27, text: "While language has long been considered essential to unlocking the mechanisms of human intelligence, music is generally treated as an evolutionary frippery", answer: "vi" },
-                { question: 28, text: "To grasp the originality of this idea, it's necessary to realize two things about how music has traditionally been understood", answer: "iv" },
-                { question: 29, text: "This music-is-moth idea often accompanied by the notion that music formally speaking at least exists apart from the world in which it was created", answer: "ii" },
-                { question: 30, text: "Schwartz's study also casts light on the long-running question of whether animals understand or appreciate music", answer: "v" },
-                { question: 31, text: "This brings up some chicken-or-egg evolutionary questions", answer: "vii" },
-                { question: 32, text: "Music is generally treated as an evolutionary frippery – mere \"auditory cheesecake,\" as the Harvard cognitive scientist Steven Pinker puts it", answer: "F" },
-                { question: 33, text: "musicologists have long emphasized that while each culture stamps a special identity onto its music; the music itself has some universal qualities", answer: "B" },
-                { question: 34, text: "Pythagoras was the first to note a direct relationship between the harmoniousness of a tone combination and the physical dimensions of the object that produced it", answer: "E" },
-                { question: 35, text: "Human musical preferences are fundamentally shaped not by elegant algorithms or ration but by the messy sounds of real life, and of speech in particular", answer: "D" },
-                { question: 36, text: "Marc Hauser and Josh McDermott of Harvard argued in the July issue of Nature Neuroscience that animals don't create or perceive music the way we do", answer: "G" },
-                { question: 37, text: "Writing recently in The New York Review of Books, pianist and critic Charles Rosen discussed the long-standing notion that while painting and sculpture reproduce at least some aspects of the natural world, and writing describes thoughts and feelings we are all familiar with, music is entirely abstracted from the world in which we live", answer: "A" },
-                { question: 38, text: "For babies, music and speech are on a continuum", answer: "C" },
-                { question: 39, text: "But aspiring screenwriters really need to look no further for essential advice then the fourth-century BC Greek Philosopher Aristotle", answer: "B" },
-                { question: 40, text: "what is the main subject of this passage?", answer: "C" }
+                { question: 27, text: "an ancient seafaring people, the distant ancestors of today’s Polynesians", answer: "H" },
+                { question: 28, text: "scraped open a grave – the first of dozens in a burial ground some 3,000 years old.", answer: "L" },
+                { question: 29, text: "harbors the bones of an ancient people archaeologists call the Lapita", answer: "A" },
+                { question: 30, text: "their descendants, centuries later, who became the great Polynesian navigators", answer: "C" },
+                { question: 31, text: "there's no proof that they could do any such thing", answer: "F" },
+                { question: 32, text: "DNA teased from these ancient bones may also help answer one of the most puzzling questions in Pacific anthropology", answer: "D" },
+                { question: 33, text: "At some point in their lives, these people left the villages of their birth and made a voyage by seagoing canoe, never to return.", answer: "C" },
+                { question: 34, text: "for at least 150 of those miles, the Lapita sailors would have been out of sight of land, with empty horizons on every side.", answer: "A" },
+                { question: 35, text: "secure in the knowledge that if they didn't find anything, they could turn about and catch a swift ride home on the trade winds.", answer: "B" },
+                { question: 36, text: "mastered the advanced art of tacking into the wind.", answer: "TRUE" },
+                { question: 37, text: "they could turn about and catch a swift ride home on the trade winds.", answer: "FALSE" },
+                { question: 38, text: "called it quits for reasons known only to them.", answer: "TRUE" },
+                { question: 39, text: "more than 300 in Fiji alone.", answer: "FALSE" },
+                { question: 40, text: "a series of unusually frequent El Niño around the time of the Lapita expansion", answer: "NOT GIVEN" }
             ];
 
             // Function to apply highlights to a passage
@@ -2991,15 +2879,8 @@
                         if (html.includes(item.text)) {
                             const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                             const re = new RegExp(escapeRegExp(item.text));
-                            const replaced = html.replace(
-                                re,
-                                `<span class="answer-highlight" data-question="${item.question}" style="
-                                    background-color: #ffeb3b;
-                                    padding: 2px 4px;
-                                    border-radius: 3px;
-                                    font-weight: bold;
-                                    position: relative;
-                                ">${item.text}<span style="
+                            const badge = (item.question !== undefined && item.question !== null && item.question !== '')
+                                ? `<span style="
                                     position: absolute;
                                     top: -8px;
                                     right: -8px;
@@ -3013,7 +2894,17 @@
                                     justify-content: center;
                                     font-size: 12px;
                                     font-weight: bold;
-                                ">${item.question}</span></span>`
+                                ">${item.question}</span>`
+                                : '';
+                            const replaced = html.replace(
+                                re,
+                                `<span class="answer-highlight" data-question="${item.question || ''}" style="
+                                    background-color: #ffeb3b;
+                                    padding: 2px 4px;
+                                    border-radius: 3px;
+                                    font-weight: bold;
+                                    position: relative;
+                                ">${item.text}${badge}</span>`
                             );
                             paragraph.innerHTML = replaced;
                         }
@@ -3021,15 +2912,15 @@
                 });
             }
 
-            // Apply highlights to Part 1 (LONGAEVA: Ancient Bristlecone Pine)
+            // Apply highlights to Part 1 (The Green Revolution in China)
             const passageText1 = document.getElementById('passage-text-1');
             applyHighlights(passageText1, part1Highlights);
 
-            // Apply highlights to Part 2 (Ancient Storytelling)
+            // Apply highlights to Part 2 (Reclaiming the Night)
             const passageText2 = document.getElementById('passage-text-2');
             applyHighlights(passageText2, part2Highlights);
 
-            // Apply highlights to Part 3 (Music: Language We All Speak)
+            // Apply highlights to Part 3 (Paper or Computer?)
             const passageText3 = document.getElementById('passage-text-3');
             applyHighlights(passageText3, part3Highlights);
         }
@@ -3390,11 +3281,28 @@
             updateAnsweredNav();
         }
         
-            function updateAnsweredNav() {
+        function updateAnsweredNav() {
             const navButtons = document.querySelectorAll('.subQuestion');
             navButtons.forEach(btn => {
-                const qNum = parseInt(btn.textContent, 10);
-                if (isQuestionAnswered(qNum)) {
+                let qNum = NaN;
+                // Prefer parsing from onclick attribute to avoid SR-only text interference
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/goToQuestion\((\d+)\)/);
+                    if (match) {
+                        qNum = parseInt(match[1], 10);
+                    }
+                }
+
+                // Fallback: try the visible number span
+                if (isNaN(qNum)) {
+                    const visibleSpan = btn.querySelector('span[aria-hidden="true"]');
+                    if (visibleSpan) {
+                        qNum = parseInt(visibleSpan.textContent.trim(), 10);
+                    }
+                }
+
+                if (!isNaN(qNum) && isQuestionAnswered(qNum)) {
                     btn.classList.add('answered');
                 } else {
                     btn.classList.remove('answered');
@@ -3402,7 +3310,7 @@
             });
         }
         
-            function isQuestionAnswered(qNum) {
+        function isQuestionAnswered(qNum) {
             const textInput = document.getElementById(`q${qNum}`);
             if (textInput && (textInput.value.trim() !== '' || (textInput.classList.contains('drop-zone') && textInput.children.length > 0))) {
                 return true;
@@ -3411,14 +3319,18 @@
             if (radio) {
                 return true;
             }
-            // Special handling for the combined checkbox group (Q20 & Q21)
-            if (qNum === 20 || qNum === 21) {
-                const checked = document.querySelectorAll('input[name="q20-21"]:checked');
-                if (checked.length > 0) return true;
+            const checkbox = document.querySelector(`input[name="q${qNum}"]:checked`);
+            if (checkbox) {
+                return true;
             }
             // Handle drag & drop questions (e.g., 20-23)
             const dz = document.querySelector(`.drop-zone[data-q-start="${qNum}"]`);
             if (dz && dz.querySelector('.drag-item')) {
+                return true;
+            }
+            // Handle summary drag & drop questions (27-31)
+            const sdz = document.querySelector(`.summary-drop-zone[data-question="${qNum}"]`);
+            if (sdz && sdz.querySelector('.drag-item')) {
                 return true;
             }
             // Handle clickable-cell matrix questions (any question using clickable cells)
@@ -3446,7 +3358,7 @@
                 item.addEventListener('dragend', handleDragEnd);
                 item.addEventListener('click', () => selectDragItem(item));
             });
-            document.querySelectorAll('.drop-zone, .drag-options-container').forEach(zone => {
+            document.querySelectorAll('.drop-zone, .summary-drop-zone, .drag-options-container').forEach(zone => {
                 zone.addEventListener('dragover', handleDragOver);
                 zone.addEventListener('dragleave', handleDragLeave);
                 zone.addEventListener('drop', handleDrop);
@@ -3487,12 +3399,11 @@
             const sourceZone = draggedItem.parentElement;
             if (sourceZone === targetZone) return; // Prevent dropping on itself
 
-            const existingItemInTarget = targetZone.classList.contains('drop-zone') 
-                ? targetZone.querySelector('.drag-item') 
-                : null;
+            const isTargetAcceptingZone = targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone');
+            const existingItemInTarget = isTargetAcceptingZone ? targetZone.querySelector('.drag-item') : null;
 
             // First, clear the target drop-zone of any text (like question numbers) before adding the new item.
-            if (targetZone.classList.contains('drop-zone')) {
+            if (targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone')) {
                 Array.from(targetZone.childNodes).forEach(node => {
                     if (node.nodeType === Node.TEXT_NODE) {
                         node.remove();
@@ -3522,6 +3433,10 @@
                  sourceZone.classList.remove('filled');
                  const qNum = sourceZone.dataset.qStart;
                  sourceZone.innerText = qNum; // Restore the question number
+            }
+            // Also handle summary drop-zones when emptied
+            if (sourceZone.classList.contains('summary-drop-zone') && !sourceZone.querySelector('.drag-item')) {
+                 sourceZone.classList.remove('filled');
             }
             
             updateAllIndicators();
@@ -3570,7 +3485,6 @@
         
         function setupCheckboxLimits() {
             const checkboxGroups = [
-                { name: 'q20-21', limit: 2 },
                 { name: 'q38-40', limit: 3 }
             ];
             checkboxGroups.forEach(group => {
