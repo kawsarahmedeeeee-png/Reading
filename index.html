@@ -17,7 +17,12 @@
             line-height: 1.4;
             font-size: 16px;
         }
-
+        
+#deliver-button {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 
         .header {
@@ -65,7 +70,7 @@
             gap: 10px;
             align-items: center;
         }
-;
+
     align-items: center;
     gap: 8px;
     padding: 6px 12px;
@@ -74,6 +79,7 @@
     background-color: #ffffff;
     line-height: 1;
         }
+
 
         #volume-slider {
             -webkit-appearance: none;
@@ -677,18 +683,13 @@
         .comment-highlight:hover .comment-tooltip {
             opacity: 1;
         }
-        #deliver-button {
-    pointer-events: none;
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 
         .question {
             margin-bottom: 40px;
         }
         .question p {
             margin-bottom: 10px;
+            /* line-height: 2.5; */
         }
         .question ul, .question .people-table {
             margin-top: 0;
@@ -843,55 +844,6 @@
         }
         .drag-options-container .drag-item:last-child {
             margin-bottom: 0;
-        }
-        
-        .passage-drag-zone {
-            margin-bottom: 10px;
-            padding: 8px;
-            border: 2px dashed #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-            /* text-align: center; */
-            color: #666;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            max-height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* width: 50%; */
-        }
-        
-        .passage-drag-zone.drag-over {
-            background-color: #e6f4ff;
-            border-color: #4a90e2;
-            border-style: solid;
-        }
-        
-        .passage-drag-zone.filled {
-            background-color: #e9f7ef;
-            border-color: #28a745;
-            border-style: solid;
-            color: #155724;
-            font-weight: bold;
-        }
-        
-        .passage-drag-zone .drag-item {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            /* align-items: center; */
-            justify-content: center;
-            font-size: 14px;
-            padding: 4px;
-            background-color: transparent;
-            border: none;
-            margin: 0;
-        }
-        
-        .passage-drag-zone.disabled {
-            pointer-events: none;
-            opacity: 0.7;
         }
         .q-number {
             color: #888;
@@ -1154,7 +1106,9 @@
             border-radius: 4px;
             transition: border-color 0.3s;
         }
-        
+        .matching-question-item > span {
+            flex: 1;
+        }
         .matching-question-item.correct {
             background-color: #e9f7ef;
             border-color: #28a745 !important;
@@ -1176,6 +1130,7 @@
         }
         .matching-options-bank .drag-item {
             font-size: 15px;
+            text-align: center;
             border: 1px solid #ccc;
             background: #f9f9f9;
         }
@@ -1204,12 +1159,11 @@
             margin-bottom: 10px;
         }
         .summary-drop-zone {
-            display: inline-flex
-;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             vertical-align: middle;
-    min-width: 200px;
+            min-width:200px;
             height: 25px;
             border: 2px dashed #999;
             border-radius: 4px;
@@ -1218,7 +1172,6 @@
             transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
             color: #aaa;
             font-weight: bold;
-    text-align: center;
         }
         .summary-drop-zone.filled {
             border-color: #4a90e2;
@@ -1240,7 +1193,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .summary-options-bank {
             display: flex;
             flex-wrap: wrap;
@@ -1527,7 +1479,9 @@
             margin-left: 10px;
             font-size: 14px;
         }
-        
+        .flow-step.question p {
+            line-height: 2.7    ;
+        }
         
         .centered-title {
     text-align: center;
@@ -1560,7 +1514,8 @@
         
         .matching-table .statement {
             text-align: left;
-            width: 60%;
+            width: 10%;
+            line-height: 2.5;
         }
         
         .matching-table .table-radio {
@@ -1569,9 +1524,9 @@
         }
         
         .matching-table td:not(.statement) {
-            text-align: center;
             width: 6.67%;
             min-width: 60px;
+            line-height: 2.5;
         }
         
         .matching-table th:not(:first-child) {
@@ -1626,41 +1581,47 @@
         
         .matching-table .clickable-cell {
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease;
             min-height: 40px;
-            border: 2px solid #e0e0e0;
+            border: 1px solid #ddd;
             position: relative;
-            background-color: #fafafa;
-            /* Debug styling - make cells very obvious */
-            min-width: 40px;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 12px;
-            color: #333;
-            font-weight: bold;
         }
         
         .matching-table .clickable-cell:hover {
             background-color: #f0f8ff;
-            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+            border-color: #007bff;
         }
         
         .matching-table .clickable-cell.selected {
             background-color: #e3f2fd;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
         }
         
         .matching-table .clickable-cell.correct {
             background-color: #d4edda !important;
+            border-color: #c3e6cb;
         }
         
         .matching-table .clickable-cell.incorrect {
             background-color: #f8d7da !important;
+            border-color: #f5c6cb;
         }
         
+        .matching-table .clickable-cell::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: transparent;
+            transition: background-color 0.2s ease;
+        }
         
-        
-        .matching-table .clickable-cell.selected::after { background-color: #007bff; }
+        .matching-table .clickable-cell.selected::after {
+            background-color: #4a90e2;
+        }
         
         /* Explanation Section Styles */
         .explanation-section {
@@ -1705,193 +1666,92 @@
         #show-explanation-btn:hover {
             background-color: #357abd;
         }
-        /* Flow Chart Styling */
+
+        /* Flow Chart Styles */
+        .flow-chart-container {
+            margin: 20px 0;
+        }
+
         .flow-chart {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
-            margin: 20px 0;
-            padding: 20px;
-            /* background: #f8f9fa; */
-            /* border-radius: 8px; */
-            /* border: 1px solid #dee2e6; */
+            gap: 10px;
         }
 
         .flow-step {
-            background: white;
-            border: 2px solid #333;
-            border-radius: 0;
-            padding: 15px 20px;
-            /* width: 400px; */
-            text-align: left;
-            position: relative;
-            font-size: 14px;
-            line-height: 2.5;
-            margin: 0;
-        }
-
-        .flow-step.input-step {
-            background: white;
-            border-color: #333;
-        }
-
-        .flow-arrow {
-            font-size: 24px;
-            color: #333;
-            font-weight: 600;
-            margin: 0;
-            padding: 5px 0;
-            line-height: 1;
-        }
-
-        .flow-step .answer-input {
-            margin: 0 2px;
-            width: 40px;
-            height: 24px;
-            background: #fff;
-            font-weight: bold;
-            font-size: 14px;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 300px;
+            text-align: center;
         }
 
         .flow-title {
             font-weight: bold;
             font-size: 16px;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: left;
-            width: 400px;
-        }
-        
-        /* Sentence Completion Styles */
-        .sentence-completion-container {
-            margin: 20px 0;
-        }
-        
-        .sentence-completion-container p {
             margin-bottom: 10px;
-            font-size: 16px;
+            color: #333;
         }
-        
-        .sentence-completion-questions {
-            margin-top: 20px;
-        }
-        
-        .sentence-question {
-            /* margin-bottom: 20px; */
-            padding: 15px 0;
-            /* border: 1px solid #e0e0e0; */
-            /* border-radius: 8px; */
-            /* background-color: #f9f9f9; */
-        }
-        
-        .sentence-question p {
-            margin: 0;
-            font-size: 16px;
+
+        .flow-content {
+            font-size: 14px;
             line-height: 1.5;
         }
-        
-        .answer-dropdown {
-            display: inline-block;
-            margin-left: 10px;
+
+        .flow-arrow {
+            font-size: 24px;
+            color: #4a90e2;
+            font-weight: bold;
         }
-        
-        .answer-select {
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: white;
-            font-size: 14px;
-            min-width: 80px;
+
+        .flow-step input[type="text"] {
+            /* border: 1px solid #ccc; */
+            /* border-radius: 3px; */
+            padding: 2px 5px;
+            margin: 0 2px;
+            /* min-width: 80px; */
         }
-        
-        .answer-select:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-        }
-        
-        /* Select element answer checking states */
-        .answer-select.correct {
-            background-color: #d4edda !important;
-            border-color: #28a745 !important;
-            color: #155724 !important;
-        }
-        
-        .answer-select.incorrect {
-            background-color: #f8d7da !important;
-            border-color: #dc3545 !important;
-            color: #721c24 !important;
-        }
-        
-        /* Notes Completion Styles */
-        .notes-completion-container {
+
+        /* Diagram Styles */
+        .diagram-container {
             margin: 20px 0;
+            text-align: center;
         }
-        
-        .note-item {
-            /* margin-bottom: 20px; */
-            padding: 15px 0;
-            /* border: 1px solid #e0e0e0; */
-            /* border-radius: 8px; */
-            /* background-color: #f9f9f9; */
+
+        .diagram-image {
+            margin-bottom: 20px;
         }
-        
-        .note-item p {
-            margin: 0;
-            font-size: 16px;
-            line-height: 1.5;
+
+        .diagram-labels {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
-        
-        .note-item .answer-input {
-            margin: 0 5px;
-            padding: 5px 10px;
+
+        .diagram-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .label-number {
+            font-weight: bold;
+            color: #4a90e2;
+            min-width: 20px;
+        }
+
+        .diagram-label input[type="text"] {
             border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: white;
-            font-size: 14px;
-            min-width: 100px;
-        }
-        
-        .note-item .answer-input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-        }
-        
-        /* Short Answer Styles */
-        .short-answer-container {
-            margin: 20px 0;
-        }
-        
-        .short-answer-item {
-            /* margin-bottom: 25px; */
-            padding: 15px 0;
-            /* border: 1px solid #e0e0e0; */
-            /* border-radius: 8px; */
-            /* background-color: #f9f9f9; */
-        }
-        
-        .short-answer-item p {
-            margin: 0 0 10px 0;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        
-        .short-answer-item .answer-input {
-            width: 100%;
-            max-width: 300px;
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: white;
-            font-size: 14px;
-        }
-        
-        .short-answer-item .answer-input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+            border-radius: 3px;
+            padding: 5px 8px;
+            min-width: 120px;
         }
     </style>
 </head>
@@ -1929,61 +1789,55 @@
         <div class="panels-container">
             <div class="passage-panel" id="passage-panel">
                 <div id="passage-text-1" class="reading-passage">
-                    <h4 class="text-center">The Extraordinary Watkin Tench</h4>
-                    <p>At the end of 18th century, life for the average British citizen was changing. The population grew as health and industrialisation took hold of the country. However, land and resources were limited. Families could not guarantee jobs for all of their children. People who were poor or destitute had little option. To make things worse, the rate of people who turned to crime to make a living increased. In Britain, the prisons were no longer large enough to hold the convicted people of this growing criminal class. Many towns and governments were at a loss as to what to do. However, another phenomenon that was happening in the 18th century was I exploration of other continents. There were many ships looking for crew members who would risk a month-long voyage across a vast ocean. This job was risky and dangerous, so few would willingly choose it. However, with so many citizens without jobs or with criminal convictions, they had little choice. One such member of this new lower class of British citizens was Watkin Tench. Between 1788 and 1868, approximately 161,700 convicts were transported to the Australian colonies of New South Wales, Van Diemen's land and Western Australia. Tench was one of these unlucky convicts to sign onto a dangerous journey. When his ship set out in 1788, he signed a three years' service to the First Fleet.</p>
-                    <p>Apart from his years in Australia, people knew little about his life back in Britain. It was said he was born on 6 October 1758 at Chester in the county of Cheshire in England. He came from a decent background. Tench was a son of Fisher Tench, a dancing master who ran a boarding school in the town and Margaritta Tarleton of the Liverpool Tarletons. He grew up around a finer class of British citizens, and his family helped instruct the children of the wealthy in formal dance lessons. Though we don't know for sure how Tench was educated in this small British town, we do know that he was well educated. His diaries from his travels to Australia are written in excellent English, a skill that not everyone was lucky to possess in the 18th century. Aside from this, we know little of Tench's beginnings. We don't know how he ended up convicted of a crime. But after he started his voyage, his life changed dramatically.</p>
-                    <p>During the voyage, which was harsh and took many months, Tench described landscape of different places. While sailing to Australia, Tench saw landscapes that were unfamiliar and new to him. Arriving in Australia, the entire crew was uncertain of what was to come in their new life. When they arrived in Australia, they established a British colony. Governor Philip was vested with complete authority over the inhabitants of the colony. Though still a young man, Philip was enlightened for his age. From stories of other British colonies, Philip learnt that conflict with the original peoples of the land was often a source of strife and difficulties. To avoid this, Philip's personal intent was to establish harmonious relations with local Aboriginal people. But Philip's job was even more difficult considering his crew. Other colonies were established with middle-class merchants and craftsmen. His crew were convicts, who had few other skills outside of their criminal histories. Along with making peace with the Aboriginal people, Philip also had to try to reform as well as discipline the convicts of the colony.</p>
-                    <p>From the beginning, Tench stood out as different from the other convicts. During his initial time in Australia, he quickly rose in his rank, and was given extra power and responsibility over the convicted crew members. However, he was also still very different from the upper-class rulers who came to rule over the crew. He showed humanity towards the convicted workers. He didn't want to treat them as common criminals, but as trained military men. Under Tench's authority, he released the convicts' chains which were used to control them during the voyage. Tench also showed mercy towards the Aboriginal people. Governor Philip often pursued violent solutions to conflicts with the Aboriginal peoples. Tench disagreed strongly with this method. At one point, he was unable to follow the order given by the Governor Philip to punish the ten Aboriginals.</p>
-                    <p>When they first arrived, Tench was fearful and contemptuous towards the Aboriginals, because the two cultures did not understand each other. However, gradually he got to know them individually and became close friends with them. Tench knew that the Aboriginal people would not cause them conflict if they looked for a peaceful solution. Though there continued to be conflict and violence, Tench's efforts helped establish a more peaceful negotiation between the two groups when they settled territory and land-use issues.</p>
-                    <p>Meanwhile, many changes were made to the new colony. The Hawkesbury River was named by Governor Philip in June 1789. Many native bird species to the river were hunted by travelling colonists. The colonists were having a great impact on the land and natural resources. Though the colonists had made a lot of progress in the untamed lands of Australia, there were still limits. The convicts were notoriously ill-informed about Australian geography, as was evident in the attempt by twenty absconders to walk from Sydney to China in 1791, believing: "China might be easily reached, being not more than a hundred miles distant, and separated only by a river." In reality, miles of ocean separated the two.</p>
-                    <p>Much of Australia was unexplored by the convicts. Even Tench had little understanding of what existed beyond the established lines of their colony. Slowly, but surely, the colonists expanded into the surrounding area. A few days after arrival at Botany Bay, their original location, the fleet moved to the more suitable Port Jackson where a settlement was established at Sydney Cove on 26 January 1788. This second location was strange and unfamiliar, and the fleet was on alert for any kind of suspicious behaviors. Though Tench had made friends in Botany Bay with Aboriginal peoples, he could not be sure this new land would be uninhabited. He recalled the first time he stepped into this unfamiliar ground with a boy who helped Tench navigate. In these new lands, he met an old Aboriginal.</p>
+                    <h4 class="text-center">Bricks – The Versatile Building Material</h4>
+                    <p>Bricks are one of the oldest known building materials dating back to 7000 BCE. The oldest found were sun-dried mud bricks in southern Turkey and these would have been standard in those days. Although sun-dried mud bricks worked reasonably well, especially in moderate climates, fired bricks were found to be more resistant to harsher weather conditions and so fired bricks are much more reliable for use in permanent buildings. Fired brick are also useful in hotter climates, as they can absorb any heat generated throughout the day and then release it at night.</p>
+                    <p>The Romans also distinguished between the bricks they used that were dried by the sun and air and the bricks that were fired in a kiln. The Romans were real brick connoisseurs. They preferred to make their bricks in the spring and hold on to their bricks for two years, before they were used or sold. They only used clay that was whitish or red for their bricks. The Romans passed on their skills around their sphere of influence and were especially successful at using their mobile kilns to introduce kiln-fired bricks to the whole of the Roman Empire.</p>
+                    <p>During the twelfth century, bricks were introduced to northern Germany from northern Italy. This created the 'brick Gothic period,' which was a reduced style of Gothic architecture previously very common in northern Europe. The buildings around this time were mainly built from fired red clay bricks. The brick Gothic period can be categorised by the lack of figural architectural sculptures that had previously been carved in stone, as the Gothic figures were impossible to create out of bulky bricks at that time.</p>
+                    <p>Bricks suffered a setback during the Renaissance and Baroque periods, with exposed brick walls becoming unpopular and brickwork being generally covered by plaster. Only during the mid-eighteenth century did visible brick walls again regain some popularity.</p>
+                    <p>Bricks today are more commonly used in the construction of buildings than any other material, except wood. Brick architecture is dominant within its field and a great industry has developed and invested in the manufacture of many different types of bricks of all shapes and colours. With modern machinery, earth moving equipment, powerful electric motors and modern tunnel kilns, making bricks has become much more productive and efficient. Bricks can be made from a variety of materials, the most common being clay, but they can also be made of calcium silicate and concrete.</p>
+                    <p>Good quality bricks have major advantages over stone as they are reliable, weather resistant and can tolerate acids, pollution and fire. They are also much cheaper than cut stonework. Bricks can be made to any specification in colour, size and shape, which makes them easier to build with than stone. On the other hand, there are some bricks that are more porous and therefore more susceptible to damage from dampness when exposed to water. For best results in any construction work, the correct brick must be chosen in accordance with the job specifications.</p>
+                    <p>Today, bricks are mainly manufactured in factories, usually employing one of three principal methods – the soft mud process, the stiff mud process and the dry clay process. In the past, bricks were largely manufactured by hand, and there are still artisanal companies that specialise in this product. The process involves putting the clay, water and additives into a large pit, where it is all mixed together by a tempering wheel, often still moved by horse power. Once the mixture is of the correct consistency, the clay is removed and pressed into moulds by hand. To prevent the brick from sticking to the mould, the brick is coated in either sand or water, though coating a brick with sand gives an overall better finish to it. Once shaped, the bricks are laid outside to dry by air and sun for three to four days. If these bricks left outside for the drying process are exposed to a shower, the water can leave indentations on the brick, which, although not affecting the strength of the brick, is considered very undesirable. After drying, the bricks are then transferred to the kiln for firing and this creates the finished product. Bricks are now more generally made by manufacturing processes using machinery. This is a large-scale effort and produces bricks that have been fired in patent kilns.</p>
+                    <p>Today's bricks are also specially designed to be efficient at insulation. If their composition is correct and their laying accurate, a good brick wall around a house can save the occupants a significant amount of money. This is primarily achieved today through cavity wall insulation. Insulating bricks are built in two separate leaves, as they are called in the trade. The gap between the inner and outer leaves of brickwork depends on the type of insulation used, but there should be enough space for a gap of twenty millimetres between the insulating material in the cavity and the two leaves on either side. The air in these gaps is an efficient insulator by itself. Cavity walls have also replaced solid walls, because they are more resistant to rain penetration. Because two leaves are necessary, a strong brick manufacturing industry is essential, so that enough good quality insulating bricks are plentifully available.</p>
                 </div>
                 <div id="passage-text-2" class="reading-passage hidden">
-                    <h4 class="text-center">Stress of Workplace</h4>
-                    <p><strong>A</strong> How busy is too busy? For some it means having to miss the occasional long lunch; for others it means missing lunch altogether. For a few, it is hot being able to take a "sickie" once a month. Then there is a group of people for whom working every evening and weekend is normal, and franticness is the tempo of their lives. For most senior executives, workloads swing between extremely busy and frenzied. The vice-president of the management consultancy AT Kearney and its head of telecommunications for the Asia-Pacific region, Neil Plumridge, says his work weeks vary from a "manageable" 45 hours to 80 hours, but average 60 hours.</p>
-                    <p><strong>B</strong> Three warning signs alert Plumridge about his workload: sleep, scheduling and family. He knows he has too much on when he gets less than six hours of sleep for three consecutive nights; when he is constantly having to reschedule appointments; "and the third one is on the family side", says Plumridge, the father of a three-year-old daughter, and expecting a second child in October. "If I happen to miss a birthday or anniversary, I know things are out of control." Being "too busy" is highly subjective. But for any individual, the perception of being too busy over a prolonged period can start showing up as stress: disturbed sleep, and declining mental and physical health. National workers' compensation figures show stress causes the most lost time of any workplace injury. Employees suffering stress are off work an average of 16.6 weeks. The effects of stress are also expensive. Comcare, the Federal Government insurer, reports that in 2003-04, claims for psychological injury accounted for 7% of claims but almost 27% of claim costs. Experts say the key to dealing with stress is not to focus on relief—a game of golf or a massage-—but to reassess workloads. Neil Plumridge says he makes it a priority to work out what has to change; that might mean allocating extra resources to a job, allowing more time or changing expectations. The decision may take several days. He also relies on the advice of colleagues, saying his peers coach each other with business problems. "Just a fresh pair of eyes over an issue can help," he says.</p>
-                    <p><strong>C</strong> Executive stress is not confined to big organisations. Vanessa Stoykov has been running her own advertising and public relations business for seven years, specialising in work for financial and professional services firms. Evolution Media has grown so fast that it debuted on the BRW Fast 100 list of fastest-growing small enterprises last year—just after Stoykov had her first child. Stoykov thrives on the mental stimulation of running her own business. "Like everyone, I have the occasional day when I think my head's going to blow off," she says. Because of the growth phase the business is in, Stoykov has to concentrate on short-term stress relief—weekends in the mountains, the occasional "mental health" day—rather than delegating more work. She says: "We're hiring more people, but you need to train them, teach them about the culture and the clients, so it's actually more work rather than less."</p>
-                    <p><strong>D</strong> Identify the causes: Jan Eisner, Melbourne psychologist who specialises in executive coaching, says thriving on a demanding workload is typical of senior executives and other high-potential business adrenalin periods followed by quieter patches, while others thrive under sustained pressure. "We could take urine and blood hormonal measures and pass a judgement of whether someone's physiologically stressed or not," she says. "But that's not going to give us an indicator of what their experience of stress is, and what the emotional and cognitive impacts of stress are going to be."</p>
-                    <p><strong>E</strong> Eisner's practice is informed by a movement known as positive psychology, a school of thought that argues "positive" experiences—feeling engaged, challenged, and that one is making a contribution to something meaningful—do not balance out negative ones such as stress; instead, they help people increase their resilience over time. Good stress, or positive experiences of being challenged and rewarded, is thus cumulative in the same way as bad stress. Eisner says many of the senior business people she coaches are relying more on regulating bad stress through methods such as meditation and yoga. She points to research showing that meditation can alter the biochemistry of the brain and actually help people "retrain" the way their brains and bodies react to stress. "Meditation and yoga enable you to shift the way that your brain reacts, so if you get proficient at it you're in control."</p>
-                    <p><strong>F</strong> Recent research, such as last year's study of public servants by the British epidemiologist Sir Michael Marmot, shows the most important predictor of stress is the level of job control a person has. This debunks the theory that stress is the prerogative of high-achieving executives with type-A personalities and crazy working hours. Instead, Marmot's and other research reveals they have the best kind of job: one that combines high demands (challenging work) with high control (autonomy). "The worst jobs are those that combine high demands and low control. People with demanding jobs but little autonomy have up to four times the probability of depression and more than double the risk of heart disease," LaMontagne says. "Those two alone count for an enormous part of chronic diseases, and they represent a potentially preventable part." Overseas, particularly in Europe, such research is leading companies to redesign organisational practices to increase employees' autonomy, cutting absenteeism and lifting productivity.</p>
-                    <p><strong>G</strong> The Australian vice-president of AT Kearney, Neil Plumridge says, "Often stress is caused by our setting unrealistic expectations of ourselves. I'll promise a client I'll do something tomorrow, and then [promise] another client the same thing, when I really know it's not going to happen. I've put stress on myself when I could have said to the clients: Why don't I give that to you in 48 hours?' The client doesn't care." Overcommitting is something people experience as an individual problem. We explain it as the result of procrastination or Parkinson's law: that work expands to fdl the time available. New research indicates that people may be hard-wired to do it.</p>
-                    <p><strong>H</strong> A study in the February issue of the Journal of Experimental Psychology shows that people always believe they will be less busy in the future than now. This is a misapprehension, according to the authors of the report, Professor Gal Zauberman, of the University of North Carolina, and Professor John Lynch, of Duke University. "On average, an individual will be just as busy two weeks or a month from now as he or she is today. But that is not how it appears to be in everyday life," they wrote. "People often make commitments long in advance that they would never make if the same commitments required immediate action. That is, they discount future time investments relatively steeply." Why do we perceive a greater "surplus" of time in the future than in the present? The researchers suggest that people underestimate completion times for tasks stretching into the future, and that they are bad at imagining future competition for their time.</p>
+                    <h4 class="text-center">We have Star performers!</h4>
+                    <p><strong>A</strong>&nbsp;&nbsp;The difference between companies is people. With capital and technology in plentiful supply, the critical resource for companies in the knowledge era will be human talent. Companies full of achievers will, by definition, outperform organisations of plodders. Ergo, compete ferociously for the best people. Poach and pamper stars; ruthlessly weed out second-raters. This, in essence, has been the recruitment strategy of the ambitious company of the past decade. The 'talent mindset' was given definitive form in two reports by the consultancy McKinsey famously entitled The War for Talent. Although the intensity of the warfare subsequently subsided along with the air in the internet bubble, it has been warming up again as the economy tightens: labour shortages, for example, are the reason the government has laid out the welcome mat for immigrants from the new Europe.</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;Yet while the diagnosis – people are important – is evident to the point of platitude, the apparently logical prescription – hire the best – like so much in management is not only not obvious: it is in fact profoundly wrong. The first suspicions dawned with the crash to earth of the dotcom meteors, which showed that dumb is dumb whatever the IQ of those who perpetrate it. The point was illuminated in brilliant relief by Enron, whose leaders, as a New Yorker article called 'The Talent Myth' entertainingly related, were so convinced of their own cleverness that they never twigged that collective intelligence is not the sum of a lot of individual intelligence. In fact, in a profound sense, the two are opposites. Enron believed in stars, noted author Malcolm Gladwell, because they didn't believe in systems. But companies don't just create: 'they execute and compete and coordinate the efforts of many people, and the organisations that are most successful at that task are the ones where the system is the star'. The truth is that you can't win the talent wars by hiring stars – only lose it. New light on why this should be so is thrown by an analysis of star behaviour in this months' Harvard Business Review. In a study of the careers of 1,000 star-stock analysts in the 1990s, the researchers found that when a company recruited a star performer, three things happened.</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;First, stardom doesn't easily transfer from one organisation to another. In many cases, performance dropped sharply when high performers switched employers and in some instances never recovered. More of success than commonly supposed is due to the working environment – systems, processes, leadership, accumulated embedded learning that are absent in and can't be transported to the new firm. Moreover, precisely because of their past stellar performance, stars were unwilling to learn new tricks and antagonised those (on whom they now unwittingly depended) who could teach them. So they moved, upping their salary as they did – 36 per cent moved on within three years, fast even for Wall Street. Second, group performance suffered as a result of tensions and resentment by rivals within the team. One respondent likened hiring a star to an organ transplant. The new organ can damage others by hogging the blood supply, other organs can start aching or threaten to stop working or the body can reject the transplants altogether, he said. 'You should think about it very carefully before you do a transplant to a healthy body.' Third, investors punished the offender by selling its stock. This is ironic since the motive for importing stars was often a suffering share price in the first place. Shareholders evidently believe that the company is overpaying, the hiree is cashing in on a glorious past rather than preparing for a glowing present, and a spending spree is in the offing.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;The result of mass star hirings as well as individual ones seems to confirm such doubts. Look at County NatWest and Barclays de Zoete Wedd, both of which hired teams of stars with loud fanfare to do great things in investment banking in the 1990s. Both failed dismally. Everyone accepts the cliche that people make the organisation – but much more does the organisation make the people. When researchers studied the performance of fund managers in the 1990s, they discovered that just 30 per cent of the variation in fund performance was due to the individual, compared to 70 per cent to the company-specific setting.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;That will be no surprise to those familiar with systems thinking. W Edwards Deming used to say that there was no point in beating up on people when 90 per cent of performance variation was down to the system within which they worked. Consistent improvement, he said, is a matter not of raising the level of individual intelligence, but of the learning of the organisation as a whole. The star system is glamorous – for the few. But it rarely benefits the company that thinks it is working it. And the knock-on consequences indirectly affect everyone else too. As one internet response to Gladwell's New Yorker article put it: after Enron, 'the rest of corporate America is stuck with overpaid, arrogant, underachieving, and relatively useless talent.'</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;Football is another illustration of the star vs systems strategic choice. As with investment banks and stockbrokers, it seems obvious that success should ultimately be down to money. Great players are scarce and expensive. So the club that can afford more of them than anyone else will win. But the performance of Arsenal and Manchester United on one hand and Chelsea and Real Madrid on the other proves that it's not as easy as that. While Chelsea and Real have the funds to be compulsive star collectors – as with Juan Sebastian Veron – they are less successful than Arsenal and United which, like Liverpool before them, have put much more emphasis on developing a setting within which stars-in-the-making can flourish. Significantly, Thierry Henry, Patrick Veira and Robert Pires are much bigger stars than when Arsenal bought them, their value (in all senses) enhanced by the Arsenal system. At Chelsea, by contrast, the only context is the stars themselves – managers with different outlooks come and go every couple of seasons. There is no settled system for the stars to blend into. The Chelsea context has not only not added value, but it has also subtracted it. The side is less than the sum of its exorbitantly expensive parts. Even Real Madrid's galacticos, the most extravagantly gifted on the planet, are being outperformed by less talented but better-integrated Spanish sides. In football, too, stars are trumped by systems.</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;So if not by hiring stars, how do you compete in the war for talent? You grow your own. This worked for investment analysts, where some companies were not only better at creating stars but also at retaining them. Because they had a much more sophisticated view of the interdependent relationship between star and system, they kept them longer without resorting to the exorbitant salaries that were so destructive to rivals.</p>
                 </div>
                 <div id="passage-text-3" class="reading-passage hidden">
-                    <h4 class="text-center">Improving Patient Safety</h4>
-                    <p><strong>Packaging</strong></p>
-                    <p>One of the most prominent design issues in pharmacy is that of drag packaging and patient information leaflets (Pits). Many letters have appeared in The Journal's letters pages over the years from pharmacists dismayed at the designs of packaging that are "accidents waiting to happen".</p>
-                    <p>Packaging design in the pharmaceutical industry is handled by either in-house teams or design agencies. Designs for over-the-counter medicines, where characteristics such as attractiveness and distinguish-ability are regarded as significant, are usually commissioned from design agencies. A marketing team will prepare a brief and the designers will come up with perhaps six or seven designs. These are whittled down to two or three that might be tested on a consumer group. In contrast, most designs for prescription-only products are created in-house. In some cases, this may simply involve applying a company's house design (ie, logo, colour, font, etc). The chosen design is then handed over to design engineers who work out how the packaging will be produced.</p>
-                    <p><strong>Design considerations</strong></p>
-                    <p>The author of the recently published "Information design for patient safety," Thea Swayne, tracked the journey of a medicine from manufacturing plant, through distribution warehouses, pharmacies and hospital wards, to patients' homes. Her book highlights a multitude of design problems with current packaging, such as look-alikes and sound-alikes, small type sizes and glare on blister foils. Situations in which medicines are used include a parent giving a cough medicine to a child in the middle of the night and a busy pharmacist selecting one box from hundreds. It is argued that packaging should be designed for moments such as these. "Manufacturers are not aware of the complex situations into which products go. As designers, we are interested in not what is supposed to happen in hospital wards, but what happens in the real world," Ms Swayne said.</p>
-                    <p>Incidents where vein has been injected intrathecally instead of spine are a classic example of how poor design can contribute to harm. Investigations following these tragedies have attributed some blame to poor typescript.</p>
-                    <p><strong>Safety and compliance</strong></p>
-                    <p>Child protection is another area that gives designers opportunities to improve safety. According to the Child Accident Prevention Trust, seven out of 10 children admitted to hospital with suspected poisoning have swallowed medicines. Although child-resistant closures have reduced the number of incidents, they are not: fully child-proof. The definition of such a closure is one that not more than 15 percent of children aged between 42 and 51 months can open within five minutes. There is scope for improving what is currently available, according to Richard Mawle, a freelance product designer. "Many child-resistant packs are based on strength. They do not necessarily prevent a child from access, but may prevent people with a disability," he told The Journal. "The legal requirements are there for a good reason, but they are not good enough in terms of the users," he said. "Older people, especially those with arthritis, may have the same level of strength as a child," he explained, and suggested that better designs could rely on cognitive skills (eg, making the opening of a container a three-step process) or be based on the physical size of hands.</p>
-                    <p>Mr. Mawle worked with GlaxoSmithKline on a project to improve compliance through design, which involved applying his skills to packaging and PILs. Commenting on the information presented, he said: "There can be an awful lot of junk at the beginning of PILs. For example, why are company details listed towards the beginning of a leaflet when what might be more important for the patient is that the medicine should not be taken with alcohol?"</p>
-                    <p><strong>Design principles and guidelines</strong></p>
-                    <p>Look-alike boxes present a potential for picking errors and an obvious solution would be to use colours to highlight different strengths. However, according to Ms.Swayne, colour differentiation needs to be approached with care. Not only should strong colour contrasts be used, but designating a colour to a particular strength (colour coding) is not recommended because this could lead to the user not reading the text on a box.</p>
-                    <p>Design features can provide the basis for lengthy debates. For example, one argument is that if all packaging is white with black lettering, people would have no choice but to read every box carefully. The problem is that trials of drug packaging design are few—common studies of legibility and comprehensibility concern road traffic signs and visual display units. Although some designers take results from such studies into account, proving that a particular feature is beneficial can be difficult. For example, EU legislation requires that packaging must now include the name of the medicine in Braille but, according to Karel van der Waarde, a design consultant to the pharmaceutical industry, "it is not known how much visually impaired patients will benefit nor how much the reading of visually able patients will be impaired".</p>
-                    <p>More evidence might, however, soon be available. EU legislation requires PILs to reflect consultations with target patient groups to ensure they are legible, clear and easy to use. This implies that industry will have to start conducting tests. Dr. van der Waarde has performed readability studies on boxes and PILs for industry. A typical study involves showing a leaflet or package to a small group and asking them questions to test understanding. Results and comments are used to modify the material, which is then tested on a larger group. A third group is used to show that any further changes made are an improvement. Dr. van der Waarde is, however, sceptical about the legal requirements and says that many regulatory authorities do not have the resources to handle packaging information properly. "They do not look at the use of packaging in a practical context—they only see one box at a time and not several together as pharmacists would do," he said.</p>
-                    <p><strong>Innovations</strong></p>
-                    <p>The RCA innovation exhibition this year revealed designs for a number of innovative objects. "The popper", by Hugo Glover, aims to help arthritis sufferers remove tablets from blister packs, and "pluspoint", by James Cobb, is an adrenaline auto-injector that aims to overcome the fact that many patients do not carry their auto-injectors due to their prohibitive size. The aim of good design, according Roger Coleman, professor of inclusive design at the RCA, is to try to make things more user-friendly as well as safer. Surely, in a patient-centred health system, that can only be a good thing. "Information design for patient safety" is not intended to be mandatory. Rather, its purpose is to create a basic design standard and to stimulate innovation. The challenge for the pharmaceutical industry, as a whole, is to adopt such a standard.</p>
+                    <h4 class="text-center">Knowledge in medicine</h4>
+                    <p><strong>A</strong>&nbsp;&nbsp;What counts as knowledge? What do we mean when we say that we know something? What is the status of different kinds of knowledge? In order to explore these questions, we are going to focus on one particular area of knowledge – medicine.</p>
+                    <p><strong>B</strong>&nbsp;&nbsp;How do you know when you are ill? This may seem to be an absurd question. You know you are ill because you feel ill; your body tells you that you are ill. You may know that you feel pain or discomfort but knowing you are ill is a bit more complex. At times, people experience the symptoms of illness, but in fact, they are simply tired or over-worked or they may just have a hangover. At other times, people may be suffering from a disease and fail to be aware of the illness until it has reached a late stage in its development. So how do we know we are ill, and what counts as knowledge?</p>
+                    <p><strong>C</strong>&nbsp;&nbsp;Think about this example. You feel unwell. You have a bad cough and always seem to be tired. Perhaps it could be stress at work, or maybe you should give up smoking. You feel worse. You visit the doctor who listens to your chest and heart, takes your temperature and blood pressure, and then finally prescribes antibiotics for your cough.</p>
+                    <p><strong>D</strong>&nbsp;&nbsp;Things do not improve but you struggle on thinking you should pull yourself together, perhaps things will ease off at work soon. A return visit to your doctor shocks you. This time the doctor, drawing on years of training and experience, diagnoses pneumonia. This means that you will need bed rest and a considerable time off work. The scenario is transformed. Although you still have the same symptoms, you no longer think that these are caused by pressure at work. You know have proof that you are ill. This is the result of the combination of your own subjective experience and the diagnosis of someone who has the status of a medical expert. You have a medically authenticated diagnosis and it appears that you are seriously ill; you know you are ill and have the evidence upon which to base this knowledge.</p>
+                    <p><strong>E</strong>&nbsp;&nbsp;This scenario shows many different sources of knowledge. For example, you decide to consult the doctor in the first place because you feel unwell – this is personal knowledge about your own body. However, the doctor's expert diagnosis is based on experience and training, with sources of knowledge as diverse as other experts, laboratory reports, medical textbooks and years of experience.</p>
+                    <p><strong>F</strong>&nbsp;&nbsp;One source of knowledge is the experience of our own bodies; the personal knowledge we have of changes that might be significant, as well as the subjective experiences are mediated by other forms of knowledge such as the words we have available to describe our experience, and the common sense of our families and friends as well as that drawn from popular culture. Over the past decade, for example, Western culture has seen a significant emphasis on stress-related illness in the media. Reference to being 'stressed out' has become a common response in daily exchanges in the workplace and has become part of popular common-sense knowledge. It is thus not surprising that we might seek such an explanation of physical symptoms of discomfort.</p>
+                    <p><strong>G</strong>&nbsp;&nbsp;We might also rely on the observations of others who know us. Comments from friends and family such as 'you do look ill' or 'that's a bad cough' might be another source of knowledge. Complementary health practices, such as holistic medicine, produce their own sets of knowledge upon which we might also draw in deciding the nature and degree of our ill health and about possible treatments.</p>
+                    <p><strong>H</strong>&nbsp;&nbsp;Perhaps the most influential and authoritative source of knowledge is the medical knowledge provided by the general practitioner. We expect the doctor to have access to expert knowledge. This is socially sanctioned. It would not be acceptable to notify our employer that we simply felt too unwell to turn up for work or that our faith healer, astrologer, therapist or even our priest thought it was not a good idea. We need an expert medical diagnosis in order to obtain the necessary certificate if we need to be off work for more than the statutory self-certification period. The knowledge of the medical sciences is privileged in this respect in contemporary Western culture. Medical practitioners are also seen as having the required expert knowledge that permits them legally to prescribe drugs and treatment to which patients would not otherwise have access. However, there is a range of different knowledge upon which we draw when making decisions about our own state of health.</p>
+                    <p><strong>I</strong>&nbsp;&nbsp;However, there is more than existing knowledge in this little story; new knowledge is constructed within it. Given the doctor's medical training and background, she may hypothesize 'is this now pneumonia?' and then proceed to look for evidence about it. She will use observations and instruments to assess the evidence and – critically – interpret it in light of her training and experience. This results in new knowledge and new experience both for you and for the doctor. This will then be added to the doctor's medical knowledge and may help in the future diagnosis of pneumonia.</p>
                 </div>
             </div>
             <div class="resizer" id="resizer"></div>
             <div class="questions-panel" id="questions-panel">
                 <div id="questions-1" class="question-set">
                     <div class="questions-container">
-                        <div class="question" data-q-start="1" data-q-end="6">
+                        <div class="question" data-q-start="1" data-q-end="5">
                             <div class="question-prompt">
-                                <p><strong>Questions 1-6</strong></p>
+                                <p><strong>Questions 1-5</strong></p>
                                 <p>Do the following statements agree with the information given in the text?</p>
                                 <ul style="list-style: none; padding-left: 0;">
-                                    <li><strong>TRUE</strong> if the statement is true</li>
-                                    <li><strong>FALSE</strong> if the statement is false</li>
-                                    <li><strong>NOT GIVEN</strong> if the information is not given in the passage</li>
+                                    <li><strong>TRUE</strong> if the statement agrees with the information</li>
+                                    <li><strong>FALSE</strong> if the statement contradicts the information</li>
+                                    <li><strong>NOT GIVEN</strong> if there is no information on this</li>
                                 </ul>
                             </div>
                             <div class="tf-question" data-q-start="1" data-q-end="1">
-                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">There was a great deal of information available about the life of Tench before he arrived in Australia.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">1</span><span class="tf-question-text">Fired bricks are not efficient in countries with hot weather, as they absorb too much heat.</span></div>
                                 <div class="tf-options">
                                     <label class="tf-option"><input type="radio" name="q1" value="TRUE"> TRUE</label>
                                     <label class="tf-option"><input type="radio" name="q1" value="FALSE"> FALSE</label>
@@ -1991,7 +1845,7 @@
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="2" data-q-end="2">
-                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">Tench drew pictures to illustrate different places during the voyage.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">2</span><span class="tf-question-text">Roman brick production was determined by which season it was.</span></div>
                                 <div class="tf-options">
                                     <label class="tf-option"><input type="radio" name="q2" value="TRUE"> TRUE</label>
                                     <label class="tf-option"><input type="radio" name="q2" value="FALSE"> FALSE</label>
@@ -1999,7 +1853,7 @@
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="3" data-q-end="3">
-                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">Other military personnel in New South Wales did not treated convicts in the same way as Tench did.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">3</span><span class="tf-question-text">The bricks that led to the brick Gothic period in northern Germany were popular with house builders.</span></div>
                                 <div class="tf-options">
                                     <label class="tf-option"><input type="radio" name="q3" value="TRUE"> TRUE</label>
                                     <label class="tf-option"><input type="radio" name="q3" value="FALSE"> FALSE</label>
@@ -2007,7 +1861,7 @@
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="4" data-q-end="4">
-                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">Tench's view towards the Aboriginals remained unchanged during his time in Australia.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">4</span><span class="tf-question-text">Buildings showing brickwork were generally not liked during the Renaissance.</span></div>
                                 <div class="tf-options">
                                     <label class="tf-option"><input type="radio" name="q4" value="TRUE"> TRUE</label>
                                     <label class="tf-option"><input type="radio" name="q4" value="FALSE"> FALSE</label>
@@ -2015,160 +1869,170 @@
                                 </div>
                             </div>
                             <div class="tf-question" data-q-start="5" data-q-end="5">
-                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">An Aboriginal gave him gifts of food at the first time they met.</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">5</span><span class="tf-question-text">Some types of bricks can soak up too much water due to their absorbent qualities.</span></div>
                                 <div class="tf-options">
                                     <label class="tf-option"><input type="radio" name="q5" value="TRUE"> TRUE</label>
                                     <label class="tf-option"><input type="radio" name="q5" value="FALSE"> FALSE</label>
                                     <label class="tf-option"><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
-                            <div class="tf-question" data-q-start="6" data-q-end="6">
-                                <div class="tf-question-line"><span class="tf-question-number">6</span><span class="tf-question-text">The convicts had a good knowledge of Australian geography.</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q6" value="TRUE"> TRUE</label>
-                                    <label class="tf-option"><input type="radio" name="q6" value="FALSE"> FALSE</label>
-                                    <label class="tf-option"><input type="radio" name="q6" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="question" data-q-start="7" data-q-end="13">
+                        <div class="question" data-q-start="6" data-q-end="11">
                             <div class="question-prompt">
-                                <p><strong>Questions 7-13</strong></p>
-                                <p>Answer the questions below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from the text for each answer.</p>
+                                <p><strong>Questions 6-11</strong></p>
+                                <p>Complete the flow chart below. Write <strong>NO MORE THAN TWO WORDS</strong> from the text for each answer.</p>
                             </div>
-                            <div class="short-answer-container">
-                                <div class="short-answer-item">
-                                    <p>What could be a concrete proof of Tench's good education? <input type="text" class="answer-input" id="q7" placeholder="7" data-q-start="7" data-q-end="7"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>How many years did Tench sign the contract to the First Fleet? <input type="text" class="answer-input" id="q8" placeholder="8" data-q-start="8" data-q-end="8"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>What was used to control convicts during the voyage? <input type="text" class="answer-input" id="q9" placeholder="9" data-q-start="9" data-q-end="9"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>Who gave the order to punish the Aboriginals? <input type="text" class="answer-input" id="q10" placeholder="10" data-q-start="10" data-q-end="10"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>When did the name of Hawkesbury River come into being? <input type="text" class="answer-input" id="q11" placeholder="11" data-q-start="11" data-q-end="11"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>Where did the escaped convicts plan to go? <input type="text" class="answer-input" id="q12" placeholder="12" data-q-start="12" data-q-end="12"></p>
-                                    
-                                </div>
-                                <div class="short-answer-item">
-                                    <p>In which place did Tench feel unaccustomed? <input type="text" class="answer-input" id="q13" placeholder="13" data-q-start="13" data-q-end="13"></p>
-                                    
+                            <div class="flow-chart-container">
+                                <div class="flow-chart">
+                                    <div class="flow-step">
+                                        <div class="flow-title">Making Hand-made Bricks</div>
+                                        <div class="flow-content">
+                                            <p style="line-height: 2.5;">Combine the <input type="text" class="answer-input" id="q6" placeholder="6">, water and other ingredients with a <input type="text" class="answer-input" id="q7" placeholder="7"> to the desired consistency.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flow-arrow">↓</div>
+                                    <div class="flow-step">
+                                        <div class="flow-content">
+                                            <p  style="line-height: 2.5;">Using the hand, fill <input type="text" class="answer-input" id="q8" placeholder="8"> with the mixture-coat with <input type="text" class="answer-input" id="q9" placeholder="9"> (provides a better finish) or water to prevent stickiness.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flow-arrow">↓</div>
+                                    <div class="flow-step">
+                                        <div class="flow-content">
+                                            <p style="line-height: 2.5;">Dry in the sun; try to avoid rain, which will cause marks in the bricks – this will not affect the bricks' <input type="text" class="answer-input" id="q10" placeholder="10"></p>
+                                        </div>
+                                    </div>
+                                    <div class="flow-arrow">↓</div>
+                                    <div class="flow-step">
+                                        <div class="flow-content">
+                                            <p style="line-height: 2.5;">Transfer to <input type="text" class="answer-input" id="q11" placeholder="11"> for firing to create the finished product.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="question" data-q-start="12" data-q-end="13">
+                            <div class="question-prompt">
+                                <p><strong>Questions 12 and 13</strong></p>
+                                <p>Label the diagram below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from the text for each answer.</p>
+                            </div>
+                            <div class="diagram-container">
+                                <div class="diagram-image">
+                                    <img src="https://ieltstrainingonline.com/wp-content/uploads/2020/03/01-IELTS-Reading-q1-13-Q12-13-1024x645.jpg" alt="Brick cavity wall diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+                                </div>
+                                <input type="text" class="answer-input" id="q12" placeholder="12">
+                                <input type="text" class="answer-input" id="q13" placeholder="13">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="questions-2" class="question-set hidden">
                     <div class="questions-container">
-                        <div class="question" data-q-start="14" data-q-end="18">
+                        <div class="question" data-q-start="14" data-q-end="17">
                             <div class="question-prompt">
-                                <p><strong>Questions 14-18</strong></p>
-                                <p>Match each statement with the correct person.</p>
-                                <p><strong>NB You may use any letter more than once.</strong></p>
+                                <p><strong>Questions 14-17</strong></p>
+                                <p>The text has seven paragraphs A-G. Which paragraph contains the following information?</p>
+                                <p><strong>NB</strong> You may use any letter more than once.</p>
                             </div>
-                            <div class="matching-table-container">
-                                <p><strong>List of People</strong></p>
-                                <p><strong>A</strong> Jan Eisner</p>
-                                <p><strong>B</strong> Vanessa Stoykov</p>
-                                <p><strong>C</strong> Gal Zauberman</p>
-                                <p><strong>D</strong> Neil Plumridge</p>
-                                
-                                <div class="matching-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Questions</th>
-                                                <th>A</th>
-                                                <th>B</th>
-                                                <th>C</th>
-                                                <th>D</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="statement"><strong>14.</strong> Work stress usually happens in the high level of a business.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="14"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="14"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="14"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="14"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>15.</strong> More people involved would be beneficial for stress relief.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="15"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="15"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="15"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="15"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>16.</strong> Temporary holiday sometimes doesn't mean less work.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="16"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="16"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="16"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="16"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>17.</strong> Stress leads to a wrong direction when trying to satisfy customers.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="17"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="17"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="17"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="17"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>18.</strong> It is commonly accepted that stress at present is more severe than in the future.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="18"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="18"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="18"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="18"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>14.</strong> One example from non-commerce/business settings that better system win bigger stars</span>
+                                    <select class="answer-input" id="q14">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                    </select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>15.</strong> One failed company that believes stars rather than the system</span>
+                                    <select class="answer-input" id="q15">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                    </select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>16.</strong> One suggestion that the author made to acquire employees than to win the competition nowadays</span>
+                                    <select class="answer-input" id="q16">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                    </select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>17.</strong> One metaphor to human medical anatomy that illustrates the problems of hiring stars.</span>
+                                    <select class="answer-input" id="q17">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="question" data-q-start="19" data-q-end="21">
+                        <div class="question" data-q-start="18" data-q-end="21">
                             <div class="question-prompt">
-                                <p><strong>Questions 19-21</strong></p>
-                                <p>Choose the correct answer.</p>
+                                <p><strong>Questions 18-21</strong></p>
+                                <p>Do the following statements agree with the information given in the text?</p>
+                                <ul style="list-style: none; padding-left: 0;">
+                                    <li><strong>YES</strong> if the statement agrees with the information</li>
+                                    <li><strong>NO</strong> if the statement contradicts the information</li>
+                                    <li><strong>NOT GIVEN</strong> if there is no information on this</li>
+                                </ul>
                             </div>
+                            <div class="tf-question" data-q-start="18" data-q-end="18">
+                                <div class="tf-question-line"><span class="tf-question-number">18</span><span class="tf-question-text">McKinsey who wrote The War for Talent had not expected the huge influence made by this book.</span></div>
+                                <div class="tf-options">
+                                    <label class="tf-option"><input type="radio" name="q18" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q18" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q18" value="NOT GIVEN"> NOT GIVEN</label>
+                                    </div>
+                                    </div>
                             <div class="tf-question" data-q-start="19" data-q-end="19">
-                                <div class="tf-question-line"><span class="tf-question-number">19</span><span class="tf-question-text">Which of the following workplace stress is NOT mentioned according to Plumridge in the following options?</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">19</span><span class="tf-question-text">Economic condition becomes one of the factors which decide whether or not a country would prefer to hire foreign employees.</span></div>
                                 <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q19" value="A"> not enough time spent on family</label>
-                                    <label class="tf-option"><input type="radio" name="q19" value="B"> unable to concentrate on work</label>
-                                    <label class="tf-option"><input type="radio" name="q19" value="C"> inadequate time of sleep</label>
-                                    <label class="tf-option"><input type="radio" name="q19" value="D"> alteration of appointment</label>
-                                </div>
-                            </div>
+                                    <label class="tf-option"><input type="radio" name="q19" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q19" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q19" value="NOT GIVEN"> NOT GIVEN</label>
+                                    </div>
+                                    </div>
                             <div class="tf-question" data-q-start="20" data-q-end="20">
-                                <div class="tf-question-line"><span class="tf-question-number">20</span><span class="tf-question-text">Which of the following solution is NOT mentioned in helping reduce the work pressure according to Plumridge?</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">20</span><span class="tf-question-text">The collapse of Enron is caused totally by an unfortunate incident instead of company's management mistake.</span></div>
                                 <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q20" value="A"> allocate more personnels</label>
-                                    <label class="tf-option"><input type="radio" name="q20" value="B"> increase more time</label>
-                                    <label class="tf-option"><input type="radio" name="q20" value="C"> lower expectation</label>
-                                    <label class="tf-option"><input type="radio" name="q20" value="D"> do sports and massage</label>
+                                    <label class="tf-option"><input type="radio" name="q20" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q20" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q20" value="NOT GIVEN"> NOT GIVEN</label>
+                                    </div>
                                 </div>
-                            </div>
                             <div class="tf-question" data-q-start="21" data-q-end="21">
-                                <div class="tf-question-line"><span class="tf-question-number">21</span><span class="tf-question-text">What is the point of view of Jan Eisner towards work stress?</span></div>
+                                <div class="tf-question-line"><span class="tf-question-number">21</span><span class="tf-question-text">Football clubs that focus making stars in the setting are better than simply collecting stars</span></div>
                                 <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q21" value="A"> Medical test can only reveal part of the data needed to cope with stress</label>
-                                    <label class="tf-option"><input type="radio" name="q21" value="B"> Index of body samples plays determined role.</label>
-                                    <label class="tf-option"><input type="radio" name="q21" value="C"> Emotional affection is superior to physical one.</label>
-                                    <label class="tf-option"><input type="radio" name="q21" value="D"> One well designed solution can release all stress.</label>
+                                    <label class="tf-option"><input type="radio" name="q21" value="YES"> YES</label>
+                                    <label class="tf-option"><input type="radio" name="q21" value="NO"> NO</label>
+                                    <label class="tf-option"><input type="radio" name="q21" value="NOT GIVEN"> NOT GIVEN</label>
                                 </div>
                             </div>
                         </div>
@@ -2176,13 +2040,12 @@
                         <div class="question" data-q-start="22" data-q-end="26">
                             <div class="question-prompt">
                                 <p><strong>Questions 22-26</strong></p>
-                                <p>Complete the summary below. Write <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from the text for each answer.</p>
+                                <p>Complete the following summary of the paragraphs of the text. Write <strong>NO MORE THAN TWO WORDS</strong> from the text for each answer.</p>
                             </div>
                             <div class="summary-text">
-                                <p>Statistics from National worker's compensation indicate stress plays the most important role in <strong>22</strong> <input type="text" class="answer-input" id="q22" placeholder="22" data-q-start="22" data-q-end="22">. Staffs take about <strong>23</strong> <input type="text" class="answer-input" id="q23" placeholder="23" data-q-start="23" data-q-end="23"> for absence from work caused by stress. Not just time is our main concern but great expenses generated consequently. An official insurer wrote sometime that about <strong>24</strong> <input type="text" class="answer-input" id="q24" placeholder="24" data-q-start="24" data-q-end="24"> of all claims were mental issues whereas nearly 27% costs in all claims. Sports such as <strong>25</strong> <input type="text" class="answer-input" id="q25" placeholder="25" data-q-start="25" data-q-end="25">, as well as <strong>26</strong> <input type="text" class="answer-input" id="q26" placeholder="26" data-q-start="26" data-q-end="26"> could be a treatment to release stress; However, specialists recommended another practical way out, analyse workloads once again.</p>
+                                <p>An investigation carried out on 1000 <input type="text" class="answer-input" id="q22" placeholder="22"> Participants of a survey by Harvard Business Review found a company hire a <input type="text" class="answer-input" id="q23" placeholder="23"> has negative effects. For instance, they behave considerably worse in a new team than in the <input type="text" class="answer-input" id="q24" placeholder="24"> that they used to be. They move faster than wall street and increase their <input type="text" class="answer-input" id="q25" placeholder="25"> Secondly, they faced rejections or refuse from those <input type="text" class="answer-input" id="q26" placeholder="26"> within the team. Lastly, the one who made mistakes had been punished by selling his/her stock share.</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div id="questions-3" class="question-set hidden">
@@ -2190,125 +2053,160 @@
                         <div class="question" data-q-start="27" data-q-end="32">
                             <div class="question-prompt">
                                 <p><strong>Questions 27-32</strong></p>
-                                <p>Match each statement with the correct person or organisation.</p>
-                                <p><strong>NB You may use any letter more than once.</strong></p>
-                            </div>
-                            <div class="matching-table-container">
-                                <p><strong>List of People/Organizations</strong></p>
-                                <p><strong>A</strong> Thea Swayne</p>
-                                <p><strong>B</strong> Children Accident Prevention Trust</p>
-                                <p><strong>C</strong> Richard Mawle</p>
-                                <p><strong>D</strong> Karel van der Waarde</p>
-                                
-                                <div class="matching-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Questions</th>
-                                                <th>A</th>
-                                                <th>B</th>
-                                                <th>C</th>
-                                                <th>D</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="statement"><strong>27.</strong> Elderly people may have the same problem with children if the lids of containers require too much strength to open.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="27"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="27"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="27"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="27"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>28.</strong> Adapting packaging for the blind may disadvantage the sighted people.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="28"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="28"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="28"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="28"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>29.</strong> Specially designed lids cannot eliminate the possibility of children swallowing pills accidentally.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="29"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="29"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="29"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="29"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>30.</strong> Container design should consider situations, such as drug used at home.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="30"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="30"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="30"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="30"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>31.</strong> Governing bodies should investigate many different container cases rather than individual ones.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="31"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="31"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="31"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="31"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="statement"><strong>32.</strong> Information on the list of a leaflet hasn't been in the right order.</td>
-                                                <td class="clickable-cell" data-value="A" data-question="32"></td>
-                                                <td class="clickable-cell" data-value="B" data-question="32"></td>
-                                                <td class="clickable-cell" data-value="C" data-question="32"></td>
-                                                <td class="clickable-cell" data-value="D" data-question="32"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <p>Complete the table. Write <strong>NO MORE THAN THREE WORDS</strong> from the text for each answer.</p>
                                 </div>
+                            <div class="matching-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Source of knowledge</th>
+                                            <th>Examples</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="statement">Personal experience</td>
+                                            <td class="statement">Symptoms of a <input type="text" class="answer-input" id="q27" placeholder="27" style="max-width: 20px;"> and tiredness<br>Doctor's measurement by taking <input type="text" style="max-width: 20px" class="answer-input" id="q28" placeholder="28"> and temperature</input><br>Common judgment from <input type="text" style="max-width: 20px" class="answer-input" id="q29" placeholder="29"> around you</input></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="statement">Scientific evidence</td>
+                                            <td>Medical knowledge from the general <input type="text" class="answer-input" id="q30" style="max-width: 20px"  placeholder="30"></input><br>e.g. doctor's medical <input type="text" class="answer-input" id="q31" style="max-width: 20px" placeholder="31"></input><br>Examine the medical hypothesis with the previous drill and <input type="text" class="answer-input" id="q32" style="max-width: 20px" placeholder="32"></input></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <div class="question" data-q-start="33" data-q-end="37">
+                        <div class="question" data-q-start="33" data-q-end="40">
                             <div class="question-prompt">
-                                <p><strong>Questions 33-37</strong></p>
-                                <p>Complete the notes. Write <strong>NO MORE THAN TWO WORDS </strong> from the text for each answer.</p>
+                                <p><strong>Questions 33-40</strong></p>
+                                <p>The text has nine paragraphs A-I. Which paragraph contains the following information?</p>
                             </div>
-                            <div class="notes-completion-container">
-                                <p><strong>Packaging in pharmaceutical industry</strong></p>
-                                <p><strong>Designs for over-the-counter medicines</strong></p>
-                                <p>First,  <input type="text" class="answer-input" id="q33" placeholder="33" data-q-start="33" data-q-end="33"> make the proposal, then pass them to the <input type="text" class="answer-input" id="q34" placeholder="34" data-q-start="34" data-q-end="34">. Finally, these designs will be tested by <input type="text" class="answer-input" id="q35" placeholder="35" data-q-start="35" data-q-end="35">.</p>
-                                <p><strong>Prescription-only</strong></p>
-                                <p>First, the design is made by <input type="text" class="answer-input" id="q36" placeholder="36" data-q-start="36" data-q-end="36"> and then subjected to <input type="text" class="answer-input" id="q37" placeholder="37" data-q-start="37" data-q-end="37">.</p>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>33.</strong> the contrast between the nature of personal judgment and the nature of doctor's diagnosis</span>
+                                    <select class="answer-input" id="q33">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
                             </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>34.</strong> a reference of culture about pressure</span>
+                                    <select class="answer-input" id="q34">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>35.</strong> sick leave will not be permitted without the professional diagnosis</span>
+                                    <select class="answer-input" id="q35">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>36.</strong> how doctors' opinions are regarded in society</span>
+                                    <select class="answer-input" id="q36">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>37.</strong> the illness of patients can become part of new knowledge</span>
+                                    <select class="answer-input" id="q37">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>38.</strong> a description of knowledge drawn from non-specialized sources other than personal knowledge</span>
+                                    <select class="answer-input" id="q38">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>39.</strong> an example of collective judgment from personal experience and professional doctor</span>
+                                    <select class="answer-input" id="q39">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
+                            </div>
+                                <div class="matching-form-row">
+                                    <span class="matching-form-label"><strong>40.</strong> a reference that some people do not realize they are ill</span>
+                                    <select class="answer-input" id="q40">
+                                        <option value="">Select</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                    </select>
                         </div>
-                                
-                        <div class="question" data-q-start="38" data-q-end="40">
-                            <div class="question-prompt">
-                                <p><strong>Questions 38-40</strong></p>
-                                <p>Choose the correct answer.</p>
                             </div>
-                            <div class="tf-question" data-q-start="38" data-q-end="38">
-                                <div class="tf-question-line"><span class="tf-question-number">38</span><span class="tf-question-text">What may cause the accident in "design container"?</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q38" value="A"> a print error</label>
-                                    <label class="tf-option"><input type="radio" name="q38" value="B"> style of print</label>
-                                    <label class="tf-option"><input type="radio" name="q38" value="C"> wrong label</label>
-                                    <label class="tf-option"><input type="radio" name="q38" value="D"> the shape of the bottle</label>
-                                </div>
-                            </div>
-                            <div class="tf-question" data-q-start="39" data-q-end="39">
-                                <div class="tf-question-line"><span class="tf-question-number">39</span><span class="tf-question-text">What do people think about the black and white only print?</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q39" value="A"> Consumers dislike these products.</label>
-                                    <label class="tf-option"><input type="radio" name="q39" value="B"> People have to pay more attention to the information.</label>
-                                    <label class="tf-option"><input type="radio" name="q39" value="C"> That makes all products looks alike.</label>
-                                    <label class="tf-option"><input type="radio" name="q39" value="D"> Sighted people may feel it more helpful.</label>
-                                </div>
-                            </div>
-                            <div class="tf-question" data-q-start="40" data-q-end="40">
-                                <div class="tf-question-line"><span class="tf-question-number">40</span><span class="tf-question-text">Why does the writer mention "popper" and "pluspoint"?</span></div>
-                                <div class="tf-options">
-                                    <label class="tf-option"><input type="radio" name="q40" value="A"> to show that container design has made some progress</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="B"> to illustrate an example of inappropriate design which can lead to accidents</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="C"> to show that the industry still needs more to improve</label>
-                                    <label class="tf-option"><input type="radio" name="q40" value="D"> to point out that consumers should be more informed about the information</label>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -2481,49 +2379,49 @@
 
         // --- ANSWERS ---
         const correctAnswers = {
-            // Part 1 (1-13)
+            // Part 1 (1-13) - Bricks
             '1': 'FALSE',
-            '2': 'NOT GIVEN',
-            '3': 'TRUE',
-            '4': 'FALSE',
-            '5': 'NOT GIVEN',
-            '6': 'FALSE',
-            '7': 'His diaries',
-            '8': '3/Three years',
-            '9': 'Chains',
-            '10': 'Governor Philip',
-            '11': 'June 1789',
-            '12': 'China',
-            '13': 'Botany Bay',
+            '2': 'TRUE',
+            '3': 'NOT GIVEN',
+            '4': 'TRUE',
+            '5': 'TRUE',
+            '6': 'clay',
+            '7': 'tempering wheel',
+            '8': 'moulds',
+            '9': 'sand',
+            '10': 'strength',
+            '11': 'kiln',
+            '12': 'leaves',
+            '13': ['20 millimetres', '20mm', '20 mm', 'twenty millimetres'],
             // Part 2 (14-26)
-            '14': 'A',
-            '15': 'D',
-            '16': 'B',
-            '17': 'D',
-            '18': 'C',
-            '19': 'B',
-            '20': 'D',
-            '21': 'A',
-            '22': 'workplace injury',
-            '23': '16.6 weeks',
-            '24': '7%',
-            '25': 'golf',
-            '26': 'massage',
+            '14': 'F',
+            '15': 'B',
+            '16': 'G',
+            '17': 'C',
+            '18': 'NOT GIVEN',
+            '19': 'YES',
+            '20': 'NO',
+            '21': 'YES',
+            '22': ['star-stock analysts', 'analysts'],
+            '23': ['star performer', 'star', 'performance star'],
+            '24': ['working environment', 'settings'],
+            '25': 'salary',
+            '26': 'rivals',
             // Part 3 (27-40)
-            '27': 'C',
-            '28': 'D',
-            '29': 'B',
-            '30': 'A',
-            '31': 'D',
-            '32': 'C',
-            '33': 'marketing teams',
-            '34': 'external designers',
-            '35': 'consumers',
-            '36': 'in-house designers',
-            '37': 'design engineers',
-            '38': 'B',
-            '39': 'B',
-            '40': 'A'
+            '27': 'bad cough',
+            '28': 'blood pressure',
+            '29': 'families and friends',
+            '30': 'Practitioner',
+            '31': 'Diagnosis',
+            '32': 'background',
+            '33': 'E',
+            '34': 'F',
+            '35': 'H',
+            '36': 'H',
+            '37': 'I',
+            '38': 'G',
+            '39': 'D',
+            '40': 'B'
         };
 
         // --- INITIALIZATION ---
@@ -2603,8 +2501,8 @@
                 });
             });
             
-            // Add specific click listeners for individual input elements in questions 21-26 and 33-36
-            document.querySelectorAll('.answer-input[id^="q2"], .answer-input[id^="q3"]').forEach(input => {
+            // Add specific click listeners for individual input elements in questions 33-36
+            document.querySelectorAll('.answer-input[id^="q3"]').forEach(input => {
                 input.addEventListener('click', (event) => {
                     event.stopPropagation();
                     const qNum = parseInt(input.id.replace('q', ''), 10);
@@ -2619,11 +2517,11 @@
                 });
             });
             
-            // Add click listeners for the paragraph elements containing questions 21-26 and 33-36
+            // Add click listeners for the paragraph elements containing questions 33-36
             document.querySelectorAll('.summary-text p').forEach(p => {
                 p.addEventListener('click', (event) => {
                     event.stopPropagation();
-                    // Extract question number from the paragraph text (e.g., "21" from "<strong>21</strong>")
+                    // Extract question number from the paragraph text (e.g., "33" from "<strong>33</strong>")
                     const strongElement = p.querySelector('strong');
                     if (strongElement) {
                         const qNum = parseInt(strongElement.textContent, 10);
@@ -2685,53 +2583,6 @@
                 radioEl.addEventListener('change', update);
                 radioEl.addEventListener('click', update);
             });
-
-            // 3) For select/dropdown elements (e.g., questions 27-31)
-            document.querySelectorAll('select[name^="q"]').forEach(selectEl => {
-                const update = () => {
-                    const name = selectEl.name || '';
-                    if (name.startsWith('q')) {
-                        const qNum = parseInt(name.replace('q',''), 10);
-                        if (!isNaN(qNum)) {
-                            goToQuestion(qNum);
-                        }
-                    }
-                };
-                selectEl.addEventListener('focus', update);
-                selectEl.addEventListener('change', update);
-                selectEl.addEventListener('click', update);
-            });
-            
-            // 4) For clickable cells in questions 1-6 (matching table)
-            const clickableCells = document.querySelectorAll('.clickable-cell');
-            console.log('Found clickable cells:', clickableCells.length);
-            
-            // Temporary debug alert
-            if (clickableCells.length === 0) {
-                alert('No clickable cells found! This might indicate a problem.');
-            } else {
-                console.log('Successfully found clickable cells');
-            }
-            
-            // Debug: Log each cell to see what we found
-            clickableCells.forEach((cell, index) => {
-                console.log(`Cell ${index}:`, cell);
-                console.log(`  - data-question:`, cell.getAttribute('data-question'));
-                console.log(`  - data-value:`, cell.getAttribute('data-value'));
-                console.log(`  - classes:`, cell.className);
-                
-                cell.addEventListener('click', function() {
-                    console.log('Cell clicked:', this);
-                    const questionNum = this.getAttribute('data-question');
-                    const value = this.getAttribute('data-value');
-                    console.log('Question:', questionNum, 'Value:', value);
-                    if (questionNum && value) {
-                        selectCell(this, questionNum, value);
-                    } else {
-                        console.log('Missing data attributes:', { questionNum, value });
-                    }
-                });
-            });
         }
 
         // --- CORE TEST LOGIC ---
@@ -2750,7 +2601,7 @@
                 item.style.pointerEvents = 'none';
             });
 
-            document.querySelectorAll('.drop-zone, .passage-drag-zone').forEach(zone => {
+            document.querySelectorAll('.drop-zone').forEach(zone => {
                 zone.style.pointerEvents = 'none';
                 zone.classList.add('disabled');
             });
@@ -2897,38 +2748,6 @@
                         }
                     }
                 }
-                // Handle passage drag-and-drop questions (27-34) using passage-drag-zone
-                else if (document.querySelector(`.passage-drag-zone[data-question="${i}"]`)) {
-                    console.log(`🔍 Checking passage drag-and-drop question ${i}`);
-                    const dropZone = document.querySelector(`.passage-drag-zone[data-question="${i}"]`);
-                    const droppedItem = dropZone ? dropZone.querySelector('.drag-item') : null;
-                    const correctAnswer = correctAnswers[questionKey];
-
-                    if (droppedItem) {
-                        userAnswer = droppedItem.dataset.value;
-                        userAnswerDisplay = userAnswer;
-                        isCorrect = userAnswer === correctAnswer;
-
-                        dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
-                        if (isCorrect) {
-                            score++;
-                        } else if (correctAnswer) {
-                            const correctAnswerSpan = document.createElement('span');
-                            correctAnswerSpan.className = 'correct-answer-display';
-                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
-                            dropZone.appendChild(correctAnswerSpan);
-                        }
-                    } else {
-                        userAnswerDisplay = 'Not Answered';
-                        dropZone.classList.add('incorrect');
-                        if (correctAnswer) {
-                            const correctAnswerSpan = document.createElement('span');
-                            correctAnswerSpan.className = 'correct-answer-display';
-                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
-                            dropZone.appendChild(correctAnswerSpan);
-                        }
-                    }
-                }
                 // Handle Radio Button Inputs (T/F, MCQs)
                 else if (radioGroup.length > 0) {
                     const questionContainer = radioGroup[0]?.closest('.tf-question') || radioGroup[0]?.closest('.multi-choice-question');
@@ -2964,59 +2783,6 @@
                                     correctLabel.classList.add('correct-answer-highlight');
                                 }
                             }
-                        }
-                    }
-                }
-                // Handle Select/Dropdown Inputs (e.g., questions 27-31)
-                else if (document.querySelector(`select[name="q${i}"]`)) {
-                    console.log(`🔍 Checking select/dropdown question ${i}`);
-                    const selectElement = document.querySelector(`select[name="q${i}"]`);
-                    
-                    if (selectElement && selectElement.value !== '') {
-                        userAnswer = selectElement.value;
-                        userAnswerDisplay = userAnswer;
-                        isCorrect = userAnswer === correctAnswer;
-                        
-                        console.log(`✅ User answer for question ${i}: "${userAnswer}", Correct: "${correctAnswer}", IsCorrect: ${isCorrect}`);
-                        
-                        // Add visual feedback to the select element
-                        selectElement.classList.add(isCorrect ? 'correct' : 'incorrect');
-                        
-                        if (isCorrect) {
-                            score++;
-                            console.log(`🎉 Question ${i} is correct! Score: ${score}`);
-                        } else {
-                            console.log(`❌ Question ${i} is incorrect. Expected: "${correctAnswer}", Got: "${userAnswer}"`);
-                            
-                            // Show correct answer with green arrow
-                            const correctAnswerSpan = document.createElement('span');
-                            correctAnswerSpan.className = 'correct-answer-display';
-                            correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
-                            selectElement.parentNode.appendChild(correctAnswerSpan);
-                            
-                            // Highlight the correct option in the dropdown
-                            const correctOption = selectElement.querySelector(`option[value="${correctAnswer}"]`);
-                            if (correctOption) {
-                                correctOption.style.backgroundColor = '#d4edda';
-                                correctOption.style.color = '#155724';
-                            }
-                        }
-                    } else {
-                        console.log(`⚠️ No answer provided for question ${i}`);
-                        userAnswerDisplay = 'Not Answered';
-                        selectElement.classList.add('incorrect');
-                        
-                        // Show correct answer with green arrow for unanswered questions
-                        const correctAnswerSpan = document.createElement('span');
-                        correctAnswerSpan.className = 'correct-answer-display';
-                        correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswer}</span>`;
-                        selectElement.parentNode.appendChild(correctAnswerSpan);
-                        
-                        // Highlight the correct option for unanswered questions
-                        const correctOption = selectElement.querySelector(`option[value="${correctAnswer}"]`);
-                        if (correctOption) {
-                            correctOption.style.backgroundColor = '#d4edda';
-                            correctOption.style.color = '#155724';
                         }
                     }
                 }
@@ -3185,62 +2951,57 @@
         }
 
         function highlightCorrectAnswersInPassage() {
-            // Define highlights for Part 1 (The Extraordinary Watkin Tench)
-            // Part 1: The Extraordinary Watkin Tench
+            // Define highlights for Part 1 (Bricks – The Versatile Building Material)
             const part1Highlights = [
-                { question: 1, text: "Apart from his years in Australia, people knew little about his life back in Britain".toLowerCase() },
-                { question: 2, text: "During the voyage, which was harsh and took many months, Tench described landscape of different places".toLowerCase() },
-                { question: 3, text: "He showed humanity towards the convicted workers. He didn't want to treat them as common criminals, but as trained military men".toLowerCase() },
-                { question: 4, text: "When they first arrived, Tench was fearful and contemptuous towards the Aboriginals, because the two cultures did not understand each other. However, gradually he got to know them individually and became close friends with them".toLowerCase() },
-                { question: 5, text: "He recalled the first time he stepped into this unfamiliar ground with a boy who helped Tench navigate. In these new lands, he met an old Aboriginal".toLowerCase() },
-                { question: 6, text: "The convicts were notoriously ill-informed about Australian geography, as was evident in the attempt by twenty absconders to walk from Sydney to China in 1791".toLowerCase() },
-                { question: 7, text: "His diaries from his travels to Australia are written in excellent English, a skill that not everyone was lucky to possess in the 18th century".toLowerCase() },
-                { question: 8, text: "he signed a three years' service to the First Fleet".toLowerCase() },
-                { question: 9, text: "he released the convicts' chains which were used to control them during the voyage".toLowerCase() },
-                { question: 10, text: "At one point, he was unable to follow the order given by the Governor Philip to punish the ten Aboriginals".toLowerCase() },
-                { question: 11, text: "The Hawkesbury River was named by Governor Philip in June 1789".toLowerCase() },
-                { question: 12, text: "believing: 'China might be easily reached, being not more than a hundred miles distant, and separated only by a river.'".toLowerCase() },
-                { question: 13, text: "A few days after arrival at Botany Bay, their original location, the fleet moved to the more suitable Port Jackson where a settlement was established at Sydney Cove on 26 January 1788".toLowerCase() }
+                { question: 1, text: "Fired brick are also useful in hotter climates, as they can absorb any heat generated throughout the day and then release it at night.", answer: "FALSE" },
+                { question: 2, text: "They preferred to make their bricks in the spring and hold on to their bricks for two years", answer: "TRUE" },
+                { question: 3, text: "The brick Gothic period can be categorised by the lack of figural architectural sculptures", answer: "NOT GIVEN" },
+                { question: 4, text: "Bricks suffered a setback during the Renaissance and Baroque periods, with exposed brick walls becoming unpopular", answer: "TRUE" },
+                { question: 5, text: "there are some bricks that are more porous and therefore more susceptible to damage from dampness when exposed to water", answer: "TRUE" },
+                { question: 6, text: "putting the clay, water and additives into a large pit", answer: "clay" },
+                { question: 7, text: "mixed together by a tempering wheel", answer: "tempering wheel" },
+                { question: 8, text: "pressed into moulds by hand", answer: "moulds" },
+                { question: 9, text: "coating a brick with sand gives an overall better finish to it", answer: "sand" },
+                { question: 10, text: "which, although not affecting the strength of the brick, is considered very undesirable", answer: "strength" },
+                { question: 11, text: "transferred to the kiln for firing", answer: "kiln" },
+                { question: 12, text: "built in two separate leaves", answer: "leaves" },
+                { question: 13, text: "there should be enough space for a gap of twenty millimetres", answer: "20 millimetres" }
             ];
 
-            // Part 2: Stress of Workplace
+            // Define highlights for Part 2 (We have Star performers!)
             const part2Highlights = [
-                { question: 14, text: "For most senior executives, workloads swing between extremely busy and frenzied".toLowerCase() },
-                { question: 15, text: "Just a fresh pair of eyes over an issue can help".toLowerCase() },
-                { question: 16, text: "We're hiring more people, but you need to train them, teach them about the culture and the clients, so it's actually more work rather than less".toLowerCase() },
-                { question: 17, text: "Often stress is caused by our setting unrealistic expectations of ourselves".toLowerCase() },
-                { question: 18, text: "People always believe they will be less busy in the future than now".toLowerCase() },
-                { question: 19, text: "unable to concentrate on work".toLowerCase() },
-                { question: 20, text: "do sports and massage".toLowerCase() },
-                { question: 21, text: "Medical test can only reveal part of the data needed to cope with stress".toLowerCase() },
-                { question: 22, text: "workplace injury".toLowerCase() },
-                { question: 23, text: "16.6 weeks".toLowerCase() },
-                { question: 24, text: "7%".toLowerCase() },
-                { question: 25, text: "golf".toLowerCase() },
-                { question: 26, text: "massage".toLowerCase() }
+                { question: 14, text: "One example from non-commerce/business settings that better system win bigger stars", answer: "F" },
+                { question: 15, text: "One failed company that believes stars rather than the system", answer: "B" },
+                { question: 16, text: "One suggestion that the author made to acquire employees than to win the competition nowadays", answer: "G" },
+                { question: 17, text: "One example of collective judgment from personal experience and professional doctor", answer: "C" },
+                { question: 18, text: "the contrast between the nature of personal judgment and the nature of doctor's diagnosis", answer: "NOT GIVEN" },
+                { question: 19, text: "a reference of culture about pressure", answer: "YES" },
+                { question: 20, text: "sick leave will not be permitted without the professional diagnosis", answer: "NO" },
+                { question: 21, text: "how doctors' opinions are regarded in society", answer: "YES" },
+                { question: 22, text: "In a study of the careers of 1,000 star-stock analysts", answer: "star-stock analysts" },
+                { question: 23, text: "when a company recruited a star performer", answer: "star performer" },
+                { question: 24, text: "More of success than commonly supposed is due to the working environment", answer: "working environment" },
+                { question: 25, text: "So they moved, upping their salary as they did", answer: "salary" },
+                { question: 26, text: "group performance suffered as a result of tensions and resentment by rivals within the team", answer: "rivals" },
             ];
 
-            // Part 3: Improving Patient Safety
+            // Define highlights for Part 3 (Knowledge in medicine)
             const part3Highlights = [
-                { question: 27, text: "Elderly people, especially those with arthritis, may have the same level of strength as a child".toLowerCase() },
-                { question: 28, text: "it is not known how much visually impaired patients will benefit nor how much the reading of visually able patients will be impaired".toLowerCase() },
-                { question: 29, text: "seven out of 10 children admitted to hospital with suspected poisoning have swallowed medicines".toLowerCase() },
-                { question: 30, text: "Manufacturers are not aware of the complex situations into which products go. As designers, we are interested in not what is supposed to happen in hospital wards, but what happens in the real world".toLowerCase() },
-                { question: 31, text: "They do not look at the use of packaging in a practical context—they only see one box at a time and not several together as pharmacists would do".toLowerCase() },
-                { question: 32, text: "There can be an awful lot of junk at the beginning of PILs. For example, why are company details listed towards the beginning of a leaflet when what might be more important for the patient is that the medicine should not be taken with alcohol?".toLowerCase() },
-                { question: 33, text: "A marketing team will prepare a brief and the designers will come up with perhaps six or seven designs".toLowerCase() },
-                { question: 34, text: "design agencies".toLowerCase() },
-                { question: 35, text: "consumer group".toLowerCase() },
-                { question: 36, text: "in-house teams".toLowerCase() },
-                { question: 37, text: "design engineers".toLowerCase() },
-                { question: 38, text: "style of print".toLowerCase() },
-                { question: 39, text: "People have to pay more attention to the information".toLowerCase() },
-                { question: 40, text: "to show that container design has made some progress".toLowerCase() }
+                { question: 27, text: "You have a bad cough and always seem to be tired", answer: "bad cough" },
+                { question: 28, text: "takes your temperature and blood pressure", answer: "blood pressure" },
+                { question: 29, text: "Comments from friends and family such as 'you do look ill'", answer: "families and friends" },
+                { question: 30, text: "Medical knowledge provided by the general practitioner", answer: "Practitioner" },
+                { question: 31, text: "This results in new knowledge and new experience both for you and for the doctor. This will then be added to the doctor's medical knowledge", answer: "Diagnosis" },
+                { question: 32, text: "interpret it in light of her training and experience", answer: "background" },
+                { question: 33, text: "the contrast between the nature of personal judgment and the nature of doctor's diagnosis", answer: "E" },
+                { question: 34, text: "a reference of culture about pressure", answer: "F" },
+                { question: 35, text: "sick leave will not be permitted without the professional diagnosis", answer: "H" },
+                { question: 36, text: "how doctors' opinions are regarded in society", answer: "H" },
+                { question: 37, text: "the illness of patients can become part of new knowledge", answer: "I" },
+                { question: 38, text: "a description of knowledge drawn from non-specialized sources other than personal knowledge", answer: "G" },
+                { question: 39, text: "an example of collective judgment from personal experience and professional doctor", answer: "D" },
+                { question: 40, text: "a reference that some people do not realize they are ill", answer: "B" }
             ];
-
-            // --- Make highlight matching case-insensitive ---
-            // (This is done in the applyHighlights function, not here. 
-            // To make the matching case-insensitive, ensure the RegExp uses the 'i' flag in applyHighlights.)
 
             // Function to apply highlights to a passage
             function applyHighlights(passageElement, highlights) {
@@ -3259,9 +3020,9 @@
                     paragraphs.forEach(paragraph => {
                         const html = paragraph.innerHTML;
                         if (!html || typeof html !== 'string') return;
-                        if (html.toLowerCase().includes(item.text)) {
+                        if (html.includes(item.text)) {
                             const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                            const re = new RegExp(escapeRegExp(item.text), 'i');
+                            const re = new RegExp(escapeRegExp(item.text));
                             const badge = (item.question !== undefined && item.question !== null && item.question !== '')
                                 ? `<span style="
                                     position: absolute;
@@ -3303,7 +3064,7 @@
             const passageText2 = document.getElementById('passage-text-2');
             applyHighlights(passageText2, part2Highlights);
 
-            // Apply highlights to Part 3 (Communicating Styles and Conflict)
+            // Apply highlights to Part 3 (Paper or Computer?)
             const passageText3 = document.getElementById('passage-text-3');
             applyHighlights(passageText3, part3Highlights);
         }
@@ -3706,11 +3467,6 @@
             if (checkbox) {
                 return true;
             }
-            // Handle dropdown/select questions (e.g., 27-31)
-            const select = document.querySelector(`select[name="q${qNum}"]`);
-            if (select && select.value !== '') {
-                return true;
-            }
             // Handle drag & drop questions (e.g., 20-23)
             const dz = document.querySelector(`.drop-zone[data-q-start="${qNum}"]`);
             if (dz && dz.querySelector('.drag-item')) {
@@ -3719,11 +3475,6 @@
             // Handle summary drag & drop questions (27-31)
             const sdz = document.querySelector(`.summary-drop-zone[data-question="${qNum}"]`);
             if (sdz && sdz.querySelector('.drag-item')) {
-                return true;
-            }
-            // Handle passage drag & drop questions (27-34)
-            const pdz = document.querySelector(`.passage-drag-zone[data-question="${qNum}"]`);
-            if (pdz && pdz.querySelector('.drag-item')) {
                 return true;
             }
             // Handle clickable-cell matrix questions (any question using clickable cells)
@@ -3751,7 +3502,7 @@
                 item.addEventListener('dragend', handleDragEnd);
                 item.addEventListener('click', () => selectDragItem(item));
             });
-            document.querySelectorAll('.drop-zone, .summary-drop-zone, .passage-drag-zone, .drag-options-container').forEach(zone => {
+            document.querySelectorAll('.drop-zone, .summary-drop-zone, .drag-options-container').forEach(zone => {
                 zone.addEventListener('dragover', handleDragOver);
                 zone.addEventListener('dragleave', handleDragLeave);
                 zone.addEventListener('drop', handleDrop);
@@ -3792,7 +3543,7 @@
             const sourceZone = draggedItem.parentElement;
             if (sourceZone === targetZone) return; // Prevent dropping on itself
 
-            const isTargetAcceptingZone = targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone') || targetZone.classList.contains('passage-drag-zone');
+            const isTargetAcceptingZone = targetZone.classList.contains('drop-zone') || targetZone.classList.contains('summary-drop-zone');
             const existingItemInTarget = isTargetAcceptingZone ? targetZone.querySelector('.drag-item') : null;
 
             // First, clear the target drop-zone of any text (like question numbers) before adding the new item.
@@ -3802,11 +3553,6 @@
                         node.remove();
                     }
                 });
-            }
-
-            // Handle passage drag zones - clear placeholder text
-            if (targetZone.classList.contains('passage-drag-zone')) {
-                targetZone.innerHTML = '';
             }
 
             // Move the item that was in the target (if any) to the source zone.
@@ -3835,13 +3581,6 @@
             // Also handle summary drop-zones when emptied
             if (sourceZone.classList.contains('summary-drop-zone') && !sourceZone.querySelector('.drag-item')) {
                  sourceZone.classList.remove('filled');
-            }
-            // Handle passage drag zones when emptied
-            if (sourceZone.classList.contains('passage-drag-zone') && !sourceZone.querySelector('.drag-item')) {
-                 sourceZone.classList.remove('filled');
-                 const questionNum = sourceZone.dataset.question;
-                 const sectionLetter = String.fromCharCode(64 + parseInt(questionNum) - 26); // Convert 27->A, 28->B, etc.
-                 sourceZone.innerHTML = `Drag heading here for Section ${sectionLetter}`;
             }
             
             updateAllIndicators();
@@ -4117,8 +3856,58 @@
             }
         };
 
+        // Function to handle clickable cell selection for matching questions
+        window.selectAnswer = function(questionId, answer) {
+            // Remove selected class from all cells in the same row
+            const questionElement = document.querySelector(`[data-question="${questionId}"]`);
+            if (questionElement) {
+                const row = questionElement.closest('tr');
+                const cells = row.querySelectorAll('.clickable-cell');
+                cells.forEach(cell => {
+                    cell.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked cell
+                const selectedCell = row.querySelector(`[data-answer="${answer}"]`);
+                if (selectedCell) {
+                    selectedCell.classList.add('selected');
+                }
+            }
+            
+            // Update the answer in the system
+            const answerInput = document.getElementById(questionId);
+            if (answerInput) {
+                answerInput.value = answer;
+                updateAllIndicators();
+            }
+        };
+
         // --- START THE APP ---
         initialize();
+
+        // Add event listeners for table radio buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRadios = document.querySelectorAll('.table-radio');
+            tableRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Remove background color from all cells in the same row
+                    const row = this.closest('tr');
+                    const cells = row.querySelectorAll('td:not(.statement)');
+                    cells.forEach(cell => {
+                        cell.style.backgroundColor = '';
+                    });
+                    
+                    // Add background color to the selected cell
+                    if (this.checked) {
+                        this.closest('td').style.backgroundColor = '#e3f2fd';
+                    }
+                    
+                    updateAllIndicators();
+                });
+            });
+            
+
+        });
         // ========== SIMPLE AUTOSAVE ==========
 (function() {
     console.log('🔄 Autosave initialized');
@@ -4247,28 +4036,6 @@
     
     console.log('✅ Autosave enabled - saving every 30 seconds');
 })();
-
-        // Add event listeners for table radio buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            const tableRadios = document.querySelectorAll('.table-radio');
-            tableRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    // Remove background color from all cells in the same row
-                    const row = this.closest('tr');
-                    const cells = row.querySelectorAll('td:not(.statement)');
-                    cells.forEach(cell => {
-                        cell.style.backgroundColor = '';
-                    });
-                    
-                    // Add background color to the selected cell
-                    if (this.checked) {
-                        this.closest('td').style.backgroundColor = '#e3f2fd';
-                    }
-                    
-                    updateAllIndicators();
-                });
-            });
-        });
 
         // Global function for selecting cells
         window.selectCell = function(cell, questionNum, value) {
